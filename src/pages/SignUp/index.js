@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
+import { Wrapper } from "./style.js";
 
 const SignUp = () => {
   const onFinish = (values) => {
@@ -11,7 +12,8 @@ const SignUp = () => {
   };
 
   return (
-    <Form
+    <Wrapper>
+      <Form
       name="basic"
       layout="vertical"
       labelCol={{
@@ -111,6 +113,8 @@ const SignUp = () => {
         </Button>
       </Form.Item>
     </Form>
+    </Wrapper>
+    
   );
 };
 

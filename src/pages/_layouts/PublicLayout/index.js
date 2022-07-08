@@ -1,20 +1,14 @@
-import { Layout } from "antd";
 import React from "react";
+import { Header, Layout, Sider } from "./style";
 
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
-import { Header } from "./style";
 
 const PublicLayout = ({ children }) => (
   <Layout>
     <Header>ApVizinho</Header>
     <Layout>
-      <Sider>
-        <img
-          alt=""
-          src="/home/drica/Documents/ufcg/es/frontend/public/undraw_house_searching_re_stk8 1.png"
-        />
-      </Sider>
+      <Sider width='50%'/>
       <Content>{children}</Content>
     </Layout>
   </Layout>
