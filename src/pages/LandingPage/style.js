@@ -4,11 +4,12 @@ import { Layout as LayoutAntd } from "antd";
 const { Footer: FooterAntd } = LayoutAntd;
 
 const Footer = styled(FooterAntd)`
-  background-color: #c51d0a;
+  background-color: #f5f5f5;
   background-image: url("vector.png");
   background-repeat: no-repeat;
-  margin: 3rem;
+  width: 105%;
   position: absolute;
+  background-size: 100%;
   left: -5%;
   right: -3%;
   top: 84.08%;
@@ -16,45 +17,40 @@ const Footer = styled(FooterAntd)`
 `;
 
 const Wrapper = styled.div`
-  margin: 1rem;
+  width: 45vw;
+  height: 80vh;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
 `;
 
 const Title = styled.h1`
-  width: 445px;
-  height: 67px;
-  margin-top: 100px;
-  margin-left: 100px;
   font-family: "League Spartan";
   font-weight: 400;
   font-size: 100px;
   line-height: 40px;
   color: #000000;
+  margin: 4rem;
 `;
 
 const Button = styled.button`
   height: 43px;
   width: 250px;
-  left: 1076px;
-  top: 586px;
   border-radius: 2px;
   padding: 4px, 4px, 4px, 4px;
   color: #ffffff;
   background-color: #c51d0a;
+  border: none;
   margin: 0 30px;
 `;
 
-const Paragraph = styled.div`
-  height: 62px;
-  left: 632px;
-  top: 464px;
+const Subtitle = styled.h3`
   font-family: "League Spartan";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
-  line-height: 22px;
-  text-align: center;
   color: #000000;
-  padding: 10px 40px 120px 50px;
+  margin: 4rem;
 `;
 
-export { Footer, Wrapper, Title, Button, Paragraph };
+export { Footer, Wrapper, Title, Button, Subtitle };
