@@ -2,10 +2,13 @@ import { Layout as LayoutAntd } from "antd";
 
 import styled from "styled-components";
 
-const { Header: HeaderAntd, Sider: SiderAntd } = LayoutAntd;
+const { Header: HeaderAntd, Sider: SiderAntd, Footer: FooterAntd } = LayoutAntd;
 
 export const Layout = styled(LayoutAntd)`
   background: #f5f5f5;
+  &#main-layout {
+    height: 100vh;
+  }
 `;
 
 export const Sider = styled(SiderAntd)`
@@ -17,6 +20,12 @@ export const Sider = styled(SiderAntd)`
 `;
 
 export const Header = styled(HeaderAntd)`
-  // width: 100%;
   background: transparent;
+`;
+
+export const Footer = styled(FooterAntd)`
+  background-color: transparent;
+  background-image: url("vector.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 `;

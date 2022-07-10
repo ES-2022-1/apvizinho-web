@@ -1,10 +1,10 @@
 import React from "react";
-import { Header, Layout, Sider } from "./style";
+import { Header, Layout, Sider, Footer } from "./style";
 
 const { Content } = Layout;
 
 const PublicLayout = ({ children }) => (
-  <Layout>
+  <Layout id="main-layout">
     <Header>ApVizinho</Header>
     <Layout>
       <Sider
@@ -18,6 +18,7 @@ const PublicLayout = ({ children }) => (
       />
       <Content>{children}</Content>
     </Layout>
+    <Footer />
   </Layout>
 );
 
