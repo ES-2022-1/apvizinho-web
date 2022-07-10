@@ -12,6 +12,8 @@ export const Sider = styled(SiderAntd)`
   background-color: transparent;
   background-image: url("sider.png");
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
 `;
 
 export const Header = styled(HeaderAntd)`
