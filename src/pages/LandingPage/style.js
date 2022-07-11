@@ -19,18 +19,22 @@ const Footer = styled(FooterAntd)`
 const Wrapper = styled.div`
   width: 45vw;
   height: 80vh;
-  display: inline-block;
+  display: table-footer-group;
   vertical-align: middle;
   text-align: center;
 `;
 
 const Title = styled.h1`
-  font-family: "League Spartan";
+  font-family: "League Spartan", sans-serif;
   font-weight: 400;
   font-size: 100px;
   line-height: 40px;
   color: #000000;
-  margin: 4rem;
+  margin: 6rem;
+`;
+
+const DivButtons = styled.div`
+  display: flex;
 `;
 
 const Button = styled.button`
@@ -45,7 +49,7 @@ const Button = styled.button`
 `;
 
 const Subtitle = styled.h3`
-  font-family: "League Spartan";
+  font-family: "League Spartan", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -53,4 +57,4 @@ const Subtitle = styled.h3`
   margin: 4rem;
 `;
 
-export { Footer, Wrapper, Title, Button, Subtitle };
+export { Footer, Wrapper, Title, Button, Subtitle, DivButtons };
