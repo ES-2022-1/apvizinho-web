@@ -46,6 +46,7 @@ const Button = styled.button`
   background-color: #c51d0a;
   border: none;
   margin: 0 30px;
+  cursor: pointer;
 `;
 
 const Subtitle = styled.h3`
