@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Wrapper,
-  Title,
-  Button,
-  Footer,
-  Subtitle,
-  DivButtons,
-} from "./style.js";
+import { Wrapper, Title, Button, Subtitle, DivButtons } from "./style.js";
 
 const LandingPage = () => {
   return (
@@ -21,7 +14,6 @@ const LandingPage = () => {
           Cadastrar
         </Button>
       </DivButtons>
-      <Footer />
     </Wrapper>
   );
 };
