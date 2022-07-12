@@ -28,4 +28,5 @@ export const Footer = styled(FooterAntd)`
   background-image: url("vector.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  height: 15%;
 `;
