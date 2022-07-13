@@ -15,6 +15,8 @@ const Title = styled.h1`
   line-height: 40px;
   color: #000000;
   margin: 6rem;
+  margin-top: 135px;
+  margin-bottom: 0.9em;
 `;
 
 const DivButtons = styled.div`
@@ -40,6 +42,8 @@ const Subtitle = styled.h3`
   font-size: 20px;
   color: #000000;
   margin: 4rem;
+  margin-top: -2rem;
+  padding-top: 10px;
 `;
 
 export { Wrapper, Title, Button, Subtitle, DivButtons };
