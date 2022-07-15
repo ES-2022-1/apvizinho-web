@@ -1,24 +1,25 @@
 import styled from "styled-components";
-import { Checkbox as CheckboxAntd } from "antd";
 
-const CheckboxList = styled.div`
-  width: 400px;
-  background-color: yellow;
+const CheckboxList = styled.ul`
+  width: 300px;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CheckItem = styled.div`
   display: inline-block;
 `;
 
-const Checkbox = styled(CheckboxAntd)`
+const Checkbox = styled.input.attrs({ type: "checkbox" })`
   font-family: "League Spartan", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  width: 900px;
+  accent-color: #c51d0a;
+  margin-right: 10px;
+`;
+
+const Label = styled.label`
+  witdh: 500px;
   white-space: nowrap;
-  text-align: center;
-  .ant-checkbox-checked .ant-checkbox-inner {
-    background-color: red;
-    border-color: red;
-  }
 `;
 
 const Title = styled.h1`
@@ -28,4 +29,4 @@ const Title = styled.h1`
   color: #000000;
 `;
 
-export { CheckboxList, Title, Checkbox };
+export { CheckboxList, Title, Checkbox, CheckItem, Label };

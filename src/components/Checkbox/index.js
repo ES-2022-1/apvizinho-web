@@ -1,37 +1,29 @@
-import { Col } from "antd";
 import React from "react";
-import { CheckboxList, Title, Checkbox } from "./style.js";
+import { CheckboxList, Title, Checkbox, Label, CheckItem } from "./style.js";
 
-const onChange = (checkedValues) => {
-  console.log("checked = ", checkedValues);
-};
+let items = [
+  "Proximo à universidade",
+  "Proximo à ponto de ônibus",
+  "Proximo à supermercado",
+  "Mobiliado",
+  "Internet",
+  "Permitido pets",
+  "Permitido eventos",
+  "Gás encanando",
+];
 
 const CheckboxComponent = () => (
-  <Checkbox.Group
-    style={{
-      width: "100%",
-    }}
-    onChange={onChange}
-  >
-    <CheckboxList>
-      <Title>Sobre o local</Title>
-      <Col span={8}>
-        <Checkbox value="A">Próximo à universidade</Checkbox>
-      </Col>
-      <Col span={8}>
-        <Checkbox value="B">B</Checkbox>
-      </Col>
-      <Col span={8}>
-        <Checkbox value="C">C</Checkbox>
-      </Col>
-      <Col span={8}>
-        <Checkbox value="D">D</Checkbox>
-      </Col>
-      <Col span={8}>
-        <Checkbox value="E">E</Checkbox>
-      </Col>
-    </CheckboxList>
-  </Checkbox.Group>
+  <CheckboxList>
+    <Title>Sobre o local</Title>
+    {items.map((item, index) => {
+      return (
+        <CheckItem span={8} key={index}>
+          <Checkbox id="a" />
+          <Label htmlFor="a">{item}</Label>
+        </CheckItem>
+      );
+    })}
+  </CheckboxList>
 );
 
 export default CheckboxComponent;
