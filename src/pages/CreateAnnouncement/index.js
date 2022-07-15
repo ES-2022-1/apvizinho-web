@@ -1,7 +1,7 @@
-import CheckboxLocal from "../../components/CheckboxLocal";
+import CheckboxComponent from "../../components/Checkbox";
 
 const CreateAnnouncement = () => {
-  return <CheckboxLocal />;
+  return <CheckboxComponent />;
 };
 
 export default CreateAnnouncement;

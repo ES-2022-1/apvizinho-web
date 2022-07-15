@@ -1,12 +1,12 @@
 import { Col } from "antd";
 import React from "react";
-import { Title, CheckboxList, Checkbox } from "./style";
+import { CheckboxList, Title, Checkbox } from "./style.js";
 
 const onChange = (checkedValues) => {
   console.log("checked = ", checkedValues);
 };
 
-const CheckboxLocal = () => (
+const CheckboxComponent = () => (
   <Checkbox.Group
     style={{
       width: "100%",
@@ -34,4 +34,4 @@ const CheckboxLocal = () => (
   </Checkbox.Group>
 );
 
-export default CheckboxLocal;
+export default CheckboxComponent;
