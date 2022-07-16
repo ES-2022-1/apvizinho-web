@@ -18,7 +18,7 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })`
 `;
 
 const Label = styled.label`
-  witdh: 500px;
+  width: 500px;
   white-space: nowrap;
 `;
 
