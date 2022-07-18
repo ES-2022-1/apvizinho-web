@@ -6,5 +6,6 @@ export const itemsLocal = [
   "Internet",
   "Permitido pets",
   "Permitido eventos",
+  "Permitido fumantes",
   "Gás encanando",
 ];

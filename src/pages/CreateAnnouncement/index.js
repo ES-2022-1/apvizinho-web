@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import { useState } from "react";
 import CheckboxComponent from "../../components/Checkbox";
+import VacancyForm from "./VacancyForm";
 import { itemsLocal } from "../../models/LocalOptions";
 import { itemsVacancy } from "../../models/VacancyOptions";
 
@@ -24,7 +25,7 @@ const CreateAnnouncement = () => {
         title="Sobre o local"
         setOptions={handleSetLocalOptions}
       />
-      <CheckboxComponent
+      <VacancyForm
         items={itemsVacancy}
         title="Sobre a vaga"
         setOptions={handleSetVacancyOptions}
