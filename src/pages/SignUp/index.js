@@ -12,10 +12,10 @@ const SignUp = () => {
       cellphone: values.telefone,
       document: values.cpf,
       birthdate: values.data_nascimento,
-      password: values.senha
-    }
+      password: values.senha,
+    };
 
-    await registerUser(payload)
+    await registerUser(payload);
     console.log("Success:", payload);
   };
 
