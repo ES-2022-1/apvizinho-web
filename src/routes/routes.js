@@ -4,6 +4,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import SignUp from "../pages/SignUp";
 import LandingPage from "../pages/LandingPage";
 import Layout from "./Layout";
+import { ListAnnoucements } from "../pages/ListAnnouncements";
 
 const Router = () => {
   return (
@@ -17,6 +18,10 @@ const Router = () => {
         <Route
           element={<Layout isPrivate={false} component={<SignUp />} />}
           path="/signup"
+        />
+        <Route
+          element={<Layout isPrivate={false} component={<ListAnnoucements />} />}
+          path="/filter"
         />
       </Routes>
     </BrowserRouter>
