@@ -1,10 +1,22 @@
 import React from "react";
 import { Button, Input } from "antd";
 import { Wrapper, Form } from "./style.js";
+import { registerUser } from "../../services/api.js";
 
 const SignUp = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const onFinish = async (values) => {
+    const payload = {
+      firstname: values.nome,
+      surname: values.sobrenome,
+      email: values.email,
+      cellphone: values.telefone,
+      document: values.cpf,
+      birthdate: values.data_nascimento,
+      password: values.senha,
+    };
+
+    await registerUser(payload);
+    console.log("Success:", payload);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -36,6 +48,18 @@ const SignUp = () => {
           <Input placeholder="Nome" />
         </Form.Item>
         <Form.Item
+          label="Sobrenome"
+          name="sobrenome"
+          rules={[
+            {
+              required: true,
+              message: "Insira seu sobrenome.",
+            },
+          ]}
+        >
+          <Input placeholder="Sobrenome" />
+        </Form.Item>
+        <Form.Item
           label="Telefone"
           name="telefone"
           rules={[
@@ -48,8 +72,20 @@ const SignUp = () => {
           <Input placeholder="Telefone" />
         </Form.Item>
         <Form.Item
+          label="Email"
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: "Insira seu email",
+            },
+          ]}
+        >
+          <Input placeholder="Email" />
+        </Form.Item>
+        <Form.Item
           label="CPF"
-          name="CPF"
+          name="cpf"
           rules={[
             {
               required: true,
