@@ -20,7 +20,7 @@ const Router = () => {
           path="/signup"
         />
         <Route
-          element={<Layout isPrivate={false} component={<ListAnnoucements />} />}
+          element={<Layout isPrivate={true} component={<ListAnnoucements />} />}
           path="/filter"
         />
       </Routes>

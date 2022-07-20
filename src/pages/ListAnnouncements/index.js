@@ -1,12 +1,9 @@
-import Filter from "../../components/FilterAnnouncement"
+import ShowDrawer from "../../components/FilterAnnouncement/FilterDrawer";
 
 export const ListAnnoucements = () => {
-
-    return (
-
-        <>
-            <Filter></Filter>
-        </>
-    )
-
-}
+  return (
+    <>
+      <ShowDrawer />
+    </>
+  );
+};
