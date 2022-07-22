@@ -8,8 +8,7 @@ RUN yarn install --no-cache --frozen-lockfile
 RUN yarn build
 
 FROM nginx:1.21.6
+COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=build /app/build /usr/share/nginx/html
 
-EXPOSE $PORT
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
