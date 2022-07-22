@@ -21,6 +21,10 @@ const Router = () => {
           path="/"
         />
         <Route
+          element={<Layout isPrivate={false} component={<LogIn />} />}
+          path="/login"
+        />
+        <Route
           element={<Layout isPrivate={false} component={<SignUp />} />}
           path="/signup"
         />
