@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Input } from "antd";
-import { Wrapper, Form, Link } from "./style.js";
+import { Wrapper, Form, Link, Instruction } from "./style.js";
 
-const LogIn = () => {
+const ForgotPassword = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -13,6 +13,10 @@ const LogIn = () => {
 
   return (
     <Wrapper>
+      <Instruction>
+        Insira seu e-mail e enviaremos um link para que você possa voltar a
+        acessar sua conta
+      </Instruction>
       <Form
         name="basic"
         layout="vertical"
@@ -35,27 +39,15 @@ const LogIn = () => {
         >
           <Input placeholder="Email" />
         </Form.Item>
-        <Form.Item
-          label="Senha"
-          name="senha"
-          rules={[
-            {
-              required: true,
-              message: "Insira sua senha",
-            },
-          ]}
-        >
-          <Input.Password placeholder="Senha" />
-        </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Fazer Login
+            Enviar e-mail de recuperação de senha
           </Button>
         </Form.Item>
       </Form>
-      <Link href="/forgotPassword">Esqueci minha senha</Link>
+      <Link href="/login">Voltar ao login</Link>
     </Wrapper>
   );
 };
 
-export default LogIn;
+export default ForgotPassword;
