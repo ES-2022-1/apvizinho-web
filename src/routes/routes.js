@@ -3,11 +3,8 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import CreateAnnouncement from "../pages/CreateAnnouncement";
 
 import SignUp from "../pages/SignUp";
-<<<<<<< HEAD
 import Announcement from "../pages/Announcement";
-=======
 import LogIn from "../pages/LogIn";
->>>>>>> b2c5a2a575a773149a72d96821d37bcbfeb5be5e
 import LandingPage from "../pages/LandingPage";
 import Layout from "./Layout";
 
