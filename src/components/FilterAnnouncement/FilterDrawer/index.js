@@ -33,9 +33,9 @@ const ShowDrawer = () => {
   return (
     <>
       <Space>
-        <Button type="primary" onClick={showDrawer}>
+        <ButtonRed type="primary" onClick={showDrawer}>
           Filtrar
-        </Button>
+        </ButtonRed>
       </Space>
       <Drawer
         title="Filtro"
