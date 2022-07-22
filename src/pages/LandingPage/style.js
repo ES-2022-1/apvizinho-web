@@ -3,9 +3,10 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 45vw;
   height: 80vh;
-  display: table-footer-group;
-  vertical-align: middle;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const Title = styled.h1`
