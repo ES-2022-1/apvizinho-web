@@ -1,12 +1,18 @@
-import { Layout } from "antd";
 import React from "react";
+import { Header, Layout } from "./style";
+import { Button } from "antd";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const PrivateLayout = ({ children }) => (
   <Layout>
-    <Header>Header</Header>
-    <Content>{children}</Content>
+    <Header>
+      <h3>ApVizinho</h3>
+      <Button>Meu perfil</Button>
+    </Header>
+    <Layout>
+      <Content>{children}</Content>
+    </Layout>
   </Layout>
 );
 

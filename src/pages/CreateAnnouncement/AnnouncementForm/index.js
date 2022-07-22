@@ -3,7 +3,7 @@ import { Input, InputNumber } from "antd";
 import { Wrapper, VacancyForm, AddressForm, RowItem } from "./style.js";
 import TextArea from "antd/lib/input/TextArea.js";
 
-const Announcement = () => {
+const AnnouncementForm = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -12,11 +12,10 @@ const Announcement = () => {
     console.log("Failed:", errorInfo);
   };
 
-  const onChange = () => {
-  };
+  const onChange = () => {};
 
   const onDescriptionChange = (value) => {
-    console.log('changed', value);
+    console.log("changed", value);
   };
 
   return (
@@ -35,7 +34,7 @@ const Announcement = () => {
           label="Título"
           name="titulo"
           wrapperCol={{
-            span: 8
+            span: 8,
           }}
           rules={[
             {
@@ -56,10 +55,7 @@ const Announcement = () => {
             },
           ]}
         >
-          <InputNumber
-            min={0}
-            addonBefore="R$"
-            placeholder="Valor" />
+          <InputNumber min={0} addonBefore="R$" placeholder="Valor" />
         </VacancyForm.Item>
         <VacancyForm.Item
           label="Número de vagas"
@@ -77,20 +73,17 @@ const Announcement = () => {
             max={20}
             defaultValue={1}
             onChange={onChange}
-            placeholder='1'
+            placeholder="1"
           />
         </VacancyForm.Item>
         <VacancyForm.Item
           label="Descrição"
           name="descricao"
           wrapperCol={{
-            span: 10
+            span: 10,
           }}
         >
-          <TextArea
-            showCount
-            maxLength={100}
-            onChange={onDescriptionChange} />
+          <TextArea showCount maxLength={100} onChange={onDescriptionChange} />
         </VacancyForm.Item>
       </VacancyForm>
       <AddressForm
@@ -108,7 +101,7 @@ const Announcement = () => {
             label="Rua"
             name="Rua"
             style={{
-              flex: 3
+              flex: 3,
             }}
             rules={[
               {
@@ -123,7 +116,7 @@ const Announcement = () => {
             label="Número"
             name="numero"
             style={{
-              flex: 1
+              flex: 1,
             }}
             rules={[
               {
@@ -140,7 +133,7 @@ const Announcement = () => {
             label="Cidade"
             name="cidade"
             style={{
-              flex: 2
+              flex: 2,
             }}
             rules={[
               {
@@ -155,7 +148,7 @@ const Announcement = () => {
             label="Estado"
             name="Estado"
             style={{
-              flex: 1
+              flex: 1,
             }}
             rules={[
               {
@@ -172,7 +165,7 @@ const Announcement = () => {
             label="País"
             name="pais"
             style={{
-              flex: 2
+              flex: 2,
             }}
             rules={[
               {
@@ -187,7 +180,7 @@ const Announcement = () => {
             label="CEP"
             name="CEP"
             style={{
-              flex: 1
+              flex: 1,
             }}
             rules={[
               {
@@ -199,10 +192,7 @@ const Announcement = () => {
             <Input placeholder="CEP" />
           </AddressForm.Item>
         </RowItem>
-        <AddressForm.Item
-          label="Referência"
-          name="referencia"
-        >
+        <AddressForm.Item label="Referência" name="referencia">
           <Input placeholder="Referência" />
         </AddressForm.Item>
       </AddressForm>
@@ -210,4 +200,4 @@ const Announcement = () => {
   );
 };
 
-export default Announcement;
+export default AnnouncementForm;

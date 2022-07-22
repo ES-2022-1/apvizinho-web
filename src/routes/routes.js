@@ -1,13 +1,12 @@
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import CreateAnnouncement from "../pages/CreateAnnouncement";
-
 import LandingPage from "../pages/LandingPage";
 import SignUp from "../pages/SignUp";
 import LogIn from "../pages/LogIn";
 import ForgotPassword from "../pages/ForgotPassword";
-import Announcement from "../pages/Announcement";
 import Layout from "./Layout";
+import { ListAnnoucements } from "../pages/ListAnnouncements";
 
 const Router = () => {
   return (
@@ -31,14 +30,14 @@ const Router = () => {
           path="/forgotPassword"
         />
         <Route
-          element={<Layout isPrivate={true} component={<Announcement />} />}
-          path="/announcement"
-        />
-        <Route
           element={
             <Layout isPrivate={true} component={<CreateAnnouncement />} />
           }
           path="/newAnnouncement"
+        />
+        <Route
+          element={<Layout isPrivate={true} component={<ListAnnoucements />} />}
+          path="/announcements"
         />
       </Routes>
     </BrowserRouter>
