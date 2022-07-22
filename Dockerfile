@@ -1,7 +1,8 @@
-FROM node:alpine
+FROM node:16 as build
+
 WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
-COPY ./ ./
-RUN npm i
-CMD ["npm", "run", "start"]
+RUN yarn install --no-cache --frozen-lockfile
+RUN yarn build
+
+FROM nginx:1.21.6
+COPY --from=build /app/build /usr/share/nginx/html
