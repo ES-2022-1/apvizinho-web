@@ -3,7 +3,7 @@ import { Input, InputNumber } from "antd";
 import { Wrapper, VacancyForm, AddressForm, RowItem } from "./style.js";
 import TextArea from "antd/lib/input/TextArea.js";
 
-const AnnouncementForm = () => {
+const AnnouncementForm = ({ form, handleFormValuesChange }) => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -23,12 +23,14 @@ const AnnouncementForm = () => {
       <VacancyForm
         name="vacancy-form"
         layout="vertical"
-        initialValues={{
-          remember: true,
-        }}
+        // initialValues={{
+        //   remember: true,
+        // }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        form={form}
+        onValuesChange={handleFormValuesChange}
       >
         <VacancyForm.Item
           label="Título"
@@ -83,7 +85,7 @@ const AnnouncementForm = () => {
             span: 10,
           }}
         >
-          <TextArea showCount maxLength={100} onChange={onDescriptionChange} />
+          <TextArea showCount maxLength={200} onChange={onDescriptionChange} />
         </VacancyForm.Item>
       </VacancyForm>
       <AddressForm

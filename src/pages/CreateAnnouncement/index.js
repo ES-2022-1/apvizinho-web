@@ -1,13 +1,30 @@
 import { useState } from "react";
+
+import { Form } from "antd";
+
 import CheckboxComponent from "../../components/Checkbox";
 import VacancyForm from "./VacancyForm";
 import { itemsLocal } from "../../models/LocalOptions";
 import { itemsVacancy } from "../../models/VacancyOptions";
 import AnnouncementForm from "./AnnouncementForm";
 import UploadMultiple from "../../components/UploadMultiple";
-import { H1, Wrapper, FormDiv, CheckDiv, Button, UploadDiv } from "./style";
+import {
+  H1,
+  Wrapper,
+  FormDiv,
+  CheckDiv,
+  Button,
+  UploadDiv,
+  VacancyFormWrapper,
+} from "./style";
 
 const CreateAnnouncement = () => {
+  const [form] = Form.useForm();
+
+  const [numeroVagas, setNumeroVagas] = useState(
+    form.getFieldValue("numero_de_vagas")
+  );
+
   const [localOptions, setLocalOptions] = useState({});
 
   const [vacancyOptions, setVacancyOptions] = useState({});
@@ -20,12 +37,23 @@ const CreateAnnouncement = () => {
     setVacancyOptions({ ...vacancyOptions, [index]: value });
   };
 
+  const handleFormValuesChange = (/* changedValues, allValues*/) => {
+    // console.log(changedValues);
+    // console.log(allValues);
+    console.log(form.getFieldsValue());
+    console.log(form.getFieldValue("numero_de_vagas"));
+    setNumeroVagas(form.getFieldValue("numero_de_vagas"));
+  };
+
   return (
     <>
       <Wrapper>
         <FormDiv>
           <H1>Anunciar Vaga</H1>
-          <AnnouncementForm />
+          <AnnouncementForm
+            form={form}
+            handleFormValuesChange={handleFormValuesChange}
+          />
           <UploadDiv>
             <h2>Adicionar fotos</h2>
             <UploadMultiple />
@@ -37,11 +65,16 @@ const CreateAnnouncement = () => {
             title="Sobre o local"
             setOptions={handleSetLocalOptions}
           />
-          <VacancyForm
-            items={itemsVacancy}
-            title="Sobre a vaga"
-            setOptions={handleSetVacancyOptions}
-          />
+          <VacancyFormWrapper>
+            {[...Array(numeroVagas).keys()].map((i) => (
+              <VacancyForm
+                key={i + 1}
+                items={itemsVacancy}
+                title={`Sobre a vaga ${i + 1}`}
+                setOptions={handleSetVacancyOptions}
+              />
+            ))}
+          </VacancyFormWrapper>
           <Button onClick={() => console.log(localOptions, vacancyOptions)}>
             Criar anúncio
           </Button>

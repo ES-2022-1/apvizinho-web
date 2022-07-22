@@ -9,8 +9,8 @@ export const H1 = styled.h1`
 `;
 
 export const Wrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding-top: 40px;
   display: flex;
   justify-content: space-between;
@@ -43,4 +43,9 @@ export const Button = styled(ButtonAntd)`
     background-color: red !important;
     color: white;
   }
+`;
+
+export const VacancyFormWrapper = styled.div`
+  height: 17.5rem;
+  overflow-y: auto;
 `;
