@@ -14,6 +14,12 @@ const Drawer = styled(DrawerAntd)`
   display: flex;
 `;
 
-const Button = styled(ButtonAntd)``;
+const ButtonRed = styled(ButtonAntd)`
+  background-color: #c51d0a;
+  border: none;
+  &:hover {
+    background-color: red !important;
+  }
+`;
 
-export { Select, Drawer, Button };
+export { Select, Drawer, ButtonRed };

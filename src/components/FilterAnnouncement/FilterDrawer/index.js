@@ -1,9 +1,24 @@
-import { Button, Drawer, Space } from "antd";
+import { Drawer, Space, Button } from "antd";
+import { ButtonRed } from "./style";
 import React, { useState } from "react";
-import ShowSlider from "../FilterSlider";
-import { Select } from "./style";
+import CheckBox from "../../../components/Checkbox";
+import VacancyForm from "../../../pages/CreateAnnouncement/VacancyForm";
+import { itemsLocal } from "../../../models/LocalOptions";
+import { itemsVacancy } from "../../../models/VacancyOptions";
 
 const ShowDrawer = () => {
+  const [localOptions, setLocalOptions] = useState({});
+
+  const [vacancyOptions, setVacancyOptions] = useState({});
+
+  const handleSetLocalOptions = (index, value) => {
+    setLocalOptions({ ...localOptions, [index]: value });
+  };
+
+  const handleSetVacancyOptions = (index, value) => {
+    setVacancyOptions({ ...vacancyOptions, [index]: value });
+  };
+
   const [visible, setVisible] = useState(false);
   const [placement] = useState("left");
 
@@ -14,12 +29,6 @@ const ShowDrawer = () => {
   const onClose = () => {
     setVisible(false);
   };
-
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
-
-  const { Option } = Select;
 
   return (
     <>
@@ -37,18 +46,21 @@ const ShowDrawer = () => {
         key={placement}
         extra={[
           <Button key="2">Cancelar</Button>,
-          <Button key="1" type="primary">
+          <ButtonRed key="1" type="primary">
             OK
-          </Button>,
+          </ButtonRed>,
         ]}
       >
-        Gênero:
-        <Select onChange={handleChange}>
-          <Option value="fem">Feminino</Option>
-          <Option value="mas">Masculino</Option>
-        </Select>
-        Valor:
-        <ShowSlider />
+        <CheckBox
+          items={itemsLocal}
+          title="Sobre o local"
+          setOptions={handleSetLocalOptions}
+        />
+        <VacancyForm
+          items={itemsVacancy}
+          title="Sobre a vaga"
+          setOptions={handleSetVacancyOptions}
+        />
       </Drawer>
     </>
   );
