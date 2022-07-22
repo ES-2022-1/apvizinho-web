@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
+import CreateAnnouncement from "../pages/CreateAnnouncement";
 
 import SignUp from "../pages/SignUp";
 import LogIn from "../pages/LogIn";
@@ -22,6 +23,10 @@ const Router = () => {
         <Route
           element={<Layout isPrivate={false} component={<LogIn />} />}
           path="/login"
+        />
+        <Route
+          element={<Layout isPrivate={true} component={<CreateAnnouncement />} />}
+          path="/newAnnouncement"
         />
       </Routes>
     </BrowserRouter>
