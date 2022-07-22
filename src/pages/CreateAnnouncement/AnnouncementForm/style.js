@@ -4,17 +4,15 @@ import { Button as ButtonAntd, Form as FormAntd } from "antd";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
+  margin-left: 40px;
 `;
 
 export const VacancyForm = styled(FormAntd)`
-  width: 40%;
   display: flex;
   flex-direction: column;
 `;
 
 export const AddressForm = styled(FormAntd)`
-  width: 40%;
   display: flex;
   flex-direction: column;
 `;

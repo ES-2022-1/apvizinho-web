@@ -3,7 +3,7 @@ import { Input, InputNumber } from "antd";
 import { Wrapper, VacancyForm, AddressForm, RowItem } from "./style.js";
 import TextArea from "antd/lib/input/TextArea.js";
 
-const Announcement = () => {
+const AnnouncementForm = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -200,4 +200,4 @@ const Announcement = () => {
   );
 };
 
-export default Announcement;
+export default AnnouncementForm;
