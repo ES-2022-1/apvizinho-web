@@ -1,9 +1,9 @@
-export const itemsVacancy = [
-  "Suíte",
-  "Garagem inclusa",
-  "Mobília inclusa",
-  "Internet cabeada",
-  "Quarto compartilhado",
-  "Pessoa extrovertida",
-  "Pessoa organizada",
-];
+export const itemsVacancy = {
+  Suíte: false,
+  "Garagem inclusa": false,
+  "Mobília inclusa": false,
+  "Internet cabeada": false,
+  "Quarto compartilhado": false,
+  "Pessoa extrovertida": false,
+  "Pessoa organizada": false,
+};

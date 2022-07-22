@@ -2,7 +2,7 @@ import { Drawer, Space, Button } from "antd";
 import { ButtonRed } from "./style";
 import React, { useState } from "react";
 import CheckBox from "../../../components/Checkbox";
-import VacancyForm from "../../../pages/CreateAnnouncement/VacancyForm";
+import VacancyForm from "../../VacancyForm";
 import { itemsLocal } from "../../../models/LocalOptions";
 import { itemsVacancy } from "../../../models/VacancyOptions";
 

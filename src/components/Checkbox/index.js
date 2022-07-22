@@ -8,12 +8,14 @@ const CheckboxComponent = ({ items, title, setOptions }) => {
   return (
     <CheckboxList>
       <Title>{title}</Title>
-      {items.map((item, index) => {
+      {Object.keys(items).map((item, index) => {
+        console.log(item, index);
         return (
           <CheckItem span={8} key={index}>
             <Checkbox
               id={index + item}
               onChange={(event) => handleChangeCheckbox(event, index + item)}
+              checked={items[item]}
             />
             <Label htmlFor={index + item}>{item}</Label>
           </CheckItem>

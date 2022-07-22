@@ -3,20 +3,30 @@ import { Input, InputNumber } from "antd";
 import { Wrapper, VacancyForm, AddressForm, RowItem } from "./style.js";
 import TextArea from "antd/lib/input/TextArea.js";
 
-const AnnouncementForm = ({ form, handleFormValuesChange }) => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+const AnnouncementForm = ({
+  announcementForm,
+  addressForm,
+  handleAnnouncementFormValuesChange,
+  handleAddressFormValuesChange,
+  announcementInitialValues,
+  addressInitialValues,
+}) => {
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  // };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   const onChange = () => {};
 
   const onDescriptionChange = (value) => {
     console.log("changed", value);
   };
+
+  console.log(addressInitialValues);
+  console.log(announcementInitialValues);
 
   return (
     <Wrapper>
@@ -26,15 +36,16 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
         // initialValues={{
         //   remember: true,
         // }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        form={form}
-        onValuesChange={handleFormValuesChange}
+        // onFinish={onFinish}
+        // onFinishFailed={onFinishFailed}
+        // autoComplete="off"
+        form={announcementForm}
+        onValuesChange={handleAnnouncementFormValuesChange}
+        initialValues={announcementInitialValues}
       >
         <VacancyForm.Item
           label="Título"
-          name="titulo"
+          name="title"
           wrapperCol={{
             span: 8,
           }}
@@ -47,7 +58,7 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
         >
           <Input placeholder="Título" />
         </VacancyForm.Item>
-        <VacancyForm.Item
+        {/* <VacancyForm.Item
           label="Valor"
           name="valor"
           rules={[
@@ -58,10 +69,10 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
           ]}
         >
           <InputNumber min={0} addonBefore="R$" placeholder="Valor" />
-        </VacancyForm.Item>
+        </VacancyForm.Item> */}
         <VacancyForm.Item
           label="Número de vagas"
-          name="numero_de_vagas"
+          name="vacancies"
           rules={[
             {
               required: true,
@@ -80,7 +91,7 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
         </VacancyForm.Item>
         <VacancyForm.Item
           label="Descrição"
-          name="descricao"
+          name="description"
           wrapperCol={{
             span: 10,
           }}
@@ -91,17 +102,20 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
       <AddressForm
         name="address-form"
         layout="vertical"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
+        // initialValues={{
+        //   remember: true,
+        // }}
+        // onFinish={onFinish}
+        // onFinishFailed={onFinishFailed}
+        // autoComplete="off"
+        form={addressForm}
+        onValuesChange={handleAddressFormValuesChange}
+        initialValues={addressInitialValues}
       >
         <RowItem>
           <AddressForm.Item
             label="Rua"
-            name="Rua"
+            name="street"
             style={{
               flex: 3,
             }}
@@ -116,7 +130,7 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
           </AddressForm.Item>
           <AddressForm.Item
             label="Número"
-            name="numero"
+            name="number"
             style={{
               flex: 1,
             }}
@@ -133,7 +147,7 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
         <RowItem>
           <AddressForm.Item
             label="Cidade"
-            name="cidade"
+            name="city"
             style={{
               flex: 2,
             }}
@@ -147,6 +161,21 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
             <Input placeholder="Cidade" />
           </AddressForm.Item>
           <AddressForm.Item
+            label="CEP"
+            name="zip_code"
+            style={{
+              flex: 1,
+            }}
+            rules={[
+              {
+                required: true,
+                message: "Insira o CEP",
+              },
+            ]}
+          >
+            <Input placeholder="CEP" />
+          </AddressForm.Item>
+          {/* <AddressForm.Item
             label="Estado"
             name="Estado"
             style={{
@@ -160,9 +189,9 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
             ]}
           >
             <Input placeholder="Estado" />
-          </AddressForm.Item>
+          </AddressForm.Item> */}
         </RowItem>
-        <RowItem>
+        {/* <RowItem>
           <AddressForm.Item
             label="País"
             name="pais"
@@ -180,7 +209,7 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
           </AddressForm.Item>
           <AddressForm.Item
             label="CEP"
-            name="CEP"
+            name="zip_code"
             style={{
               flex: 1,
             }}
@@ -193,9 +222,9 @@ const AnnouncementForm = ({ form, handleFormValuesChange }) => {
           >
             <Input placeholder="CEP" />
           </AddressForm.Item>
-        </RowItem>
-        <AddressForm.Item label="Referência" name="referencia">
-          <Input placeholder="Referência" />
+        </RowItem> */}
+        <AddressForm.Item label="Complemento" name="complement">
+          <Input placeholder="Complemento" />
         </AddressForm.Item>
       </AddressForm>
     </Wrapper>
