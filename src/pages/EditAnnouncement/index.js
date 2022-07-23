@@ -9,7 +9,6 @@ import VacancyForm from "../../components/VacancyForm";
 import AnnouncementForm from "../../components/AnnouncementForm";
 import UploadMultiple from "../../components/UploadMultiple";
 import {
-  H1,
   Wrapper,
   FormDiv,
   CheckDiv,
@@ -61,7 +60,6 @@ const EditAnnouncement = () => {
     <>
       <Wrapper>
         <FormDiv>
-          <H1>Editar Anúncio</H1>
           <AnnouncementForm
             announcementForm={announcementForm}
             addressForm={addressForm}

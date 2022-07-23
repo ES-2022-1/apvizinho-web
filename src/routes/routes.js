@@ -8,6 +8,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import Layout from "./Layout";
 import { ListAnnoucements } from "../pages/ListAnnouncements";
 import EditAnnouncement from "../pages/EditAnnouncement";
+import { LoadAnnoucement } from "../pages/LoadAnnouncement";
 
 const Router = () => {
   return (
@@ -32,17 +33,21 @@ const Router = () => {
         />
         <Route
           element={
-            <Layout isPrivate={true} component={<CreateAnnouncement />} />
+            <Layout title="Anunciar vaga" isPrivate={true} component={<CreateAnnouncement />} />
           }
           path="/newAnnouncement"
         />
         <Route
-          element={<Layout isPrivate={true} component={<EditAnnouncement />} />}
+          element={<Layout title="Editar anúncio" isPrivate={true} component={<EditAnnouncement />} />}
           path="/editAnnouncement"
         />
         <Route
-          element={<Layout isPrivate={true} component={<ListAnnoucements />} />}
+          element={<Layout  isPrivate={true} component={<ListAnnoucements />} />}
           path="/announcements"
+        />
+        <Route
+          element={<Layout isPrivate={true} component={<LoadAnnoucement />} />}
+          path="/loadAnnouncement"
         />
       </Routes>
     </BrowserRouter>
