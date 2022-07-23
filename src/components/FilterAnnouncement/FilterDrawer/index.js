@@ -1,23 +1,33 @@
 import { Drawer, Space, Button } from "antd";
-import { ButtonRed } from "./style";
+import { ButtonRed, Select } from "./style";
 import React, { useState } from "react";
 import CheckBox from "../../../components/Checkbox";
-import VacancyForm from "../../../pages/CreateAnnouncement/VacancyForm";
-import { itemsLocal } from "../../../models/LocalOptions";
-import { itemsVacancy } from "../../../models/VacancyOptions";
+import { Option } from "antd/lib/mentions";
+import { itemsLocalMap } from "../../../models/LocalOptions";
+import { itemsVacancyMap } from "../../../models/VacancyOptions";
 
 const ShowDrawer = () => {
-  const [localOptions, setLocalOptions] = useState({});
+  // const [localOptions, setLocalOptions] = useState({});
+  // const [vacancyOptions, setVacancyOptions] = useState({});
+  const [filter, setFilter] = useState([]);
+  //const [select, setSelect] = useState({});
+  // const { isLoading, isSuccess } = emailConfig.get()
+  // const handleSetLocalOptions = (index, value) => {
+  //   setLocalOptions({ ...localOptions, [index]: value });
+  // };
 
-  const [vacancyOptions, setVacancyOptions] = useState({});
+  // const handleSetVacancyOptions = (index, value) => {
+  //   setVacancyOptions({ ...vacancyOptions, [index]: value });
+  // };
 
-  const handleSetLocalOptions = (index, value) => {
-    setLocalOptions({ ...localOptions, [index]: value });
+  const handleFilter = (index, value) => {
+    console.log(filter);
+    setFilter({ ...filter, [index]: value });
   };
 
-  const handleSetVacancyOptions = (index, value) => {
-    setVacancyOptions({ ...vacancyOptions, [index]: value });
-  };
+  // const handleSelect = (index, value) => {
+  //   setSelect({...select, [index]: value});
+  // };
 
   const [visible, setVisible] = useState(false);
   const [placement] = useState("left");
@@ -45,22 +55,38 @@ const ShowDrawer = () => {
         visible={visible}
         key={placement}
         extra={[
-          <Button key="2">Cancelar</Button>,
-          <ButtonRed key="1" type="primary">
+          <Button key="2" onClick={onClose}>
+            Cancelar
+          </Button>,
+          <ButtonRed key="1" type="primary" onClick={handleFilter}>
             OK
           </ButtonRed>,
         ]}
       >
         <CheckBox
-          items={itemsLocal}
+          items={itemsLocalMap}
           title="Sobre o local"
-          setOptions={handleSetLocalOptions}
+          setOptions={(value) => {
+            setFilter([...filter, value]);
+          }}
         />
-        <VacancyForm
-          items={itemsVacancy}
+        <CheckBox
+          items={itemsVacancyMap}
           title="Sobre a vaga"
-          setOptions={handleSetVacancyOptions}
+          setOptions={(value) => {
+            setFilter([...filter, value]);
+          }}
         />
+        <div>Gênero: </div>
+        <Select
+          onChange={(value) => {
+            setFilter([...filter, value]);
+          }}
+        >
+          <Option value="FEMALE_GENDER">Feminino</Option>
+          <Option value="MALE_GENDER">Masculino</Option>
+          <Option value="none">Não especificado</Option>
+        </Select>
       </Drawer>
     </>
   );

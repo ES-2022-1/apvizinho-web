@@ -1,8 +1,8 @@
 import { useState } from "react";
 import CheckboxComponent from "../../components/Checkbox";
 import VacancyForm from "./VacancyForm";
-import { itemsLocal } from "../../models/LocalOptions";
-import { itemsVacancy } from "../../models/VacancyOptions";
+import { itemsLocalMap } from "../../models/LocalOptions";
+import { itemsVacancyMap } from "../../models/VacancyOptions";
 import AnnouncementForm from "./AnnouncementForm";
 import UploadMultiple from "../../components/UploadMultiple";
 import { H1, Wrapper, FormDiv, CheckDiv, Button, UploadDiv } from "./style";
@@ -33,12 +33,12 @@ const CreateAnnouncement = () => {
         </FormDiv>
         <CheckDiv>
           <CheckboxComponent
-            items={itemsLocal}
+            items={itemsLocalMap}
             title="Sobre o local"
             setOptions={handleSetLocalOptions}
           />
           <VacancyForm
-            items={itemsVacancy}
+            items={itemsVacancyMap}
             title="Sobre a vaga"
             setOptions={handleSetVacancyOptions}
           />
