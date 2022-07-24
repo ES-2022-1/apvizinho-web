@@ -8,4 +8,4 @@ RUN yarn install --no-cache --frozen-lockfile
 RUN yarn build
 RUN yarn global add serve
 
-RUN yarn -l $PORT -s build
+CMD yarn -l $PORT -s build
