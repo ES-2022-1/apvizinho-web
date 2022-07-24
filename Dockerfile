@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+ENV REACT_APP_BASE_URL $REACT_APP_BASE_URL
+
 RUN yarn install --no-cache --frozen-lockfile
 RUN yarn build
 
