@@ -5,7 +5,6 @@ import LandingPage from "../pages/LandingPage";
 import SignUp from "../pages/SignUp";
 import LogIn from "../pages/LogIn";
 import ForgotPassword from "../pages/ForgotPassword";
-// import Layout from "./Layout";
 import { ListAnnoucements } from "../pages/ListAnnouncements";
 import EditAnnouncement from "../pages/EditAnnouncement";
 import { LoadAnnoucement } from "../pages/LoadAnnouncement";
