@@ -1,10 +1,23 @@
 import React from "react";
 import { Button, Input } from "antd";
 import { Wrapper, Form, Link } from "./style.js";
+import api, { login } from "../../services/api.js";
+
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  const navigate = useNavigate();
+
   const onFinish = (values) => {
-    console.log("Success:", values);
+    console.log(values);
+
+    login(values)
+      .then(({ data }) => {
+        localStorage.setItem("access_token", data.access_token);
+        api.defaults.headers.Authorization = `Bearer ${data.access_token}`;
+        navigate("/announcements");
+      })
+      .catch((err) => console.log(err));
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -25,7 +38,7 @@ const LogIn = () => {
       >
         <Form.Item
           label="E-mail"
-          name="Email"
+          name="email"
           rules={[
             {
               required: true,
@@ -37,7 +50,7 @@ const LogIn = () => {
         </Form.Item>
         <Form.Item
           label="Senha"
-          name="senha"
+          name="password"
           rules={[
             {
               required: true,
