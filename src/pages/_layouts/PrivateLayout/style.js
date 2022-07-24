@@ -2,6 +2,8 @@ import { Layout as LayoutAntd } from "antd";
 import styled from "styled-components";
 const { Header: HeaderAntd } = LayoutAntd;
 
+
+
 export const Header = styled(HeaderAntd)`
   background: transparent;
   display: flex;
@@ -12,6 +14,7 @@ export const Header = styled(HeaderAntd)`
 export const Layout = styled(LayoutAntd)`
   background: #f5f5f5;
   height: 100vh;
+  padding: 2%;
 `;
 
 export const PageTitle = styled.h1`
