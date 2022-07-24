@@ -10,6 +10,12 @@ export const registerUser = async (payload) => {
   return response;
 };
 
+export const login = async (payload) => {
+  const response = await api.post("/session", payload);
+
+  return response;
+};
+
 export const listUser = async () => {
   const response = await api.get("/user/");
 
@@ -27,3 +33,5 @@ export const listAnnoucement = async () => {
 
   return response;
 };
+
+export default api;
