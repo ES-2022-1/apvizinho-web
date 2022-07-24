@@ -17,10 +17,10 @@ import {
   ButtonDiv,
 } from "./style";
 
-export const LoadAnnoucement = () => {
+export const LoadAnnouncement = () => {
   const ref = useRef();
 
-  const annoucementTitle = {
+  const announcementTitle = {
     color: "#c51d0a",
     fontSize: "30px",
   };
@@ -33,7 +33,7 @@ export const LoadAnnoucement = () => {
     <>
       <Wrapper>
         <TitleDiv>
-          <h1 style={annoucementTitle}>titulo da vaga</h1>
+          <h1 style={announcementTitle}>titulo da vaga</h1>
         </TitleDiv>
         <WrapperCarousel>
           <Carousel ref={ref} afterChange={onChange}>

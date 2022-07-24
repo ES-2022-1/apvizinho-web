@@ -5,9 +5,9 @@ import LandingPage from "../pages/LandingPage";
 import SignUp from "../pages/SignUp";
 import LogIn from "../pages/LogIn";
 import ForgotPassword from "../pages/ForgotPassword";
-import { ListAnnoucements } from "../pages/ListAnnouncements";
+import { ListAnnouncements } from "../pages/ListAnnouncements";
 import EditAnnouncement from "../pages/EditAnnouncement";
-import { LoadAnnoucement } from "../pages/LoadAnnouncement";
+import { LoadAnnouncement } from "../pages/LoadAnnouncement";
 import PrivateLayout from "../pages/_layouts/PrivateLayout";
 import PublicLayout from "../pages/_layouts/PublicLayout";
 
@@ -52,11 +52,11 @@ const Router = () => {
           path="/editAnnouncement"
         />
         <Route
-          element={routeElement(true, ListAnnoucements)}
+          element={routeElement(true, ListAnnouncements)}
           path="/announcements"
         />
         <Route
-          element={routeElement(true, LoadAnnoucement)}
+          element={routeElement(true, LoadAnnouncement)}
           path="/loadAnnouncement"
         />
       </Routes>
