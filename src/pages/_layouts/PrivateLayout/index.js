@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Layout, PageTitle} from "./style";
+import { Header, Layout, PageTitle, Wrapper, TitleDiv } from "./style";
 import { Button } from "antd";
 
 const { Content } = Layout;
@@ -11,8 +11,12 @@ const PrivateLayout = ({ children, title }) => (
       <Button>Meu perfil</Button>
     </Header>
     <Layout>
-      <PageTitle>{title}</PageTitle>
-      <Content>{children}</Content>
+      <Wrapper>
+        <TitleDiv>
+          <PageTitle>{title}</PageTitle>
+        </TitleDiv>
+        <Content>{children}</Content>
+      </Wrapper>
     </Layout>
   </Layout>
 );
