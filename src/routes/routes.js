@@ -8,6 +8,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 // import Layout from "./Layout";
 import { ListAnnoucements } from "../pages/ListAnnouncements";
 import EditAnnouncement from "../pages/EditAnnouncement";
+import { LoadAnnoucement } from "../pages/LoadAnnouncement";
 import PrivateLayout from "../pages/_layouts/PrivateLayout";
 import PublicLayout from "../pages/_layouts/PublicLayout";
 
@@ -54,6 +55,10 @@ const Router = () => {
         <Route
           element={routeElement(true, ListAnnoucements)}
           path="/announcements"
+        />
+        <Route
+          element={routeElement(true, LoadAnnoucement)}
+          path="/loadAnnouncement"
         />
       </Routes>
     </BrowserRouter>
