@@ -1,12 +1,13 @@
 import { Drawer, Space, Button } from "antd";
 import { ButtonRed } from "./style";
 import React, { useState } from "react";
+import { FilterOutlined } from "@ant-design/icons";
 import CheckBox from "../../../components/Checkbox";
 import VacancyForm from "../../VacancyForm";
 import { itemsLocal } from "../../../models/LocalOptions";
 import { itemsVacancy } from "../../../models/VacancyOptions";
 
-const ShowDrawer = () => {
+const ShowDrawer = ({ type }) => {
   const [localOptions, setLocalOptions] = useState({});
 
   const [vacancyOptions, setVacancyOptions] = useState({});
@@ -33,9 +34,11 @@ const ShowDrawer = () => {
   return (
     <>
       <Space>
-        <ButtonRed type="primary" onClick={showDrawer}>
-          Filtrar
-        </ButtonRed>
+        <Button
+          type={type ? type : "default"}
+          onClick={showDrawer}
+          icon={<FilterOutlined />}
+        />
       </Space>
       <Drawer
         title="Filtro"
