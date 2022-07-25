@@ -25,7 +25,7 @@ import { getAnnouncement } from "./mock";
 
 const EditAnnouncement = () => {
   // substituir isso aqui por requisição
-  const annoucement = getAnnouncement();
+  const announcement = getAnnouncement();
 
   const [announcementForm] = Form.useForm();
   const [addressForm] = Form.useForm();
@@ -54,7 +54,7 @@ const EditAnnouncement = () => {
     // setNumeroVagas(announcementForm.getFieldValue("numero_de_vagas"));
   };
 
-  console.log(extractAnnouncementFields(annoucement));
+  console.log(extractAnnouncementFields(announcement));
 
   return (
     <>
@@ -65,8 +65,8 @@ const EditAnnouncement = () => {
             addressForm={addressForm}
             handleAnnouncementFormValuesChange={handleFormValuesChange}
             handleAddressFormValuesChange={handleFormValuesChange}
-            announcementInitialValues={extractAnnouncementFields(annoucement)}
-            addressInitialValues={annoucement.address}
+            announcementInitialValues={extractAnnouncementFields(announcement)}
+            addressInitialValues={announcement.address}
           />
           <UploadDiv>
             <h2>Adicionar fotos</h2>
@@ -75,12 +75,12 @@ const EditAnnouncement = () => {
         </FormDiv>
         <CheckDiv>
           <CheckboxComponent
-            items={extractLocalOptions(annoucement)}
+            items={extractLocalOptions(announcement)}
             title="Sobre o local"
             setOptions={handleSetLocalOptions}
           />
           <VacancyFormWrapper>
-            {annoucement.vacancies.map((vacancy, index) => (
+            {announcement.vacancies.map((vacancy, index) => (
               <VacancyForm
                 key={index + 1}
                 items={extractVacancyOptions(vacancy)}

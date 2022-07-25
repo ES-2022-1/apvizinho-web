@@ -22,14 +22,14 @@ export const listUser = async () => {
   return response;
 };
 
-export const registerAnnoucement = async (payload) => {
-  const response = await api.post("/annoucement", payload);
+export const registerAnnouncement = async (payload) => {
+  const response = await api.post("/announcement", payload);
 
   return response;
 };
 
-export const listAnnoucement = async () => {
-  const response = await api.get("/annoucement/");
+export const listAnnouncement = async () => {
+  const response = await api.get("/announcement/");
 
   return response;
 };
