@@ -12,7 +12,7 @@ import PrivateLayout from "../pages/_layouts/PrivateLayout";
 import PublicLayout from "../pages/_layouts/PublicLayout";
 
 const Router = () => {
-  const routeElement = (isPrivate, Component) => {
+  const routeElement = (isPrivate, Component, title) => {
     const access_token = localStorage.getItem("access_token");
     console.log(access_token);
 
@@ -27,7 +27,7 @@ const Router = () => {
     const Layout = isPrivate ? PrivateLayout : PublicLayout;
 
     return (
-      <Layout>
+      <Layout title={title}>
         <Component />
       </Layout>
     );
@@ -44,7 +44,7 @@ const Router = () => {
           path="/forgotPassword"
         />
         <Route
-          element={routeElement(true, CreateAnnouncement)}
+          element={routeElement(true, CreateAnnouncement, "Criar anúncio")}
           path="/newAnnouncement"
         />
         <Route
