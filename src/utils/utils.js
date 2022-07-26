@@ -29,3 +29,12 @@ export const extractLocalOptions = (announcement) => ({
   // "Permitido fumantes": announcement.,
   "Gás encanando": announcement.has_piped_gas,
 });
+
+export const extractUserOptions = (user) => ({
+  Nome: user.firstname,
+  Sobrenome: user.surname,
+  Email: user.email,
+  "Data de Nascimento": user.birthdate,
+  Descrição: user.bio,
+  Senha: user.password,
+});

@@ -10,6 +10,7 @@ import EditAnnouncement from "../pages/EditAnnouncement";
 import { LoadAnnouncement } from "../pages/LoadAnnouncement";
 import PrivateLayout from "../pages/_layouts/PrivateLayout";
 import PublicLayout from "../pages/_layouts/PublicLayout";
+import EditUser from "../pages/EditUser";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
@@ -22,6 +23,10 @@ const Router = () => {
 
     if (!!access_token && !isPrivate) {
       return <Navigate to="/announcements" />;
+    }
+
+    if (!!access_token && !isPrivate) {
+      return <Navigate to="/user" />;
     }
 
     const Layout = isPrivate ? PrivateLayout : PublicLayout;
@@ -42,6 +47,10 @@ const Router = () => {
         <Route
           element={routeElement(false, ForgotPassword)}
           path="/forgotPassword"
+        />
+        <Route
+          element={routeElement(false, EditUser, "Editar user")}
+          path="/editUser"
         />
         <Route
           element={routeElement(true, CreateAnnouncement, "Criar anúncio")}
