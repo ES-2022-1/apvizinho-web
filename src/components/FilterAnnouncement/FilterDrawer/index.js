@@ -3,8 +3,8 @@ import { ButtonRed, Select } from "./style";
 import React, { useState } from "react";
 import CheckBox from "../../../components/Checkbox";
 import { Option } from "antd/lib/mentions";
-import { itemsLocalMap } from "../../../models/LocalOptions";
-import { itemsVacancyMap } from "../../../models/VacancyOptions";
+import { itemsLocal } from "../../../models/LocalOptions";
+import { itemsVacancy } from "../../../models/VacancyOptions";
 
 const ShowDrawer = () => {
   // const [localOptions, setLocalOptions] = useState({});
@@ -64,14 +64,14 @@ const ShowDrawer = () => {
         ]}
       >
         <CheckBox
-          items={itemsLocalMap}
+          items={itemsLocal}
           title="Sobre o local"
           setOptions={(value) => {
             setFilter([...filter, value]);
           }}
         />
         <CheckBox
-          items={itemsVacancyMap}
+          items={itemsVacancy}
           title="Sobre a vaga"
           setOptions={(value) => {
             setFilter([...filter, value]);

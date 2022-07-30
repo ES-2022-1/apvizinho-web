@@ -4,8 +4,8 @@ import { Form } from "antd";
 
 import CheckboxComponent from "../../components/Checkbox";
 import VacancyForm from "../../components/VacancyForm";
-import { itemsLocal } from "../../models/LocalOptions";
-import { itemsVacancy } from "../../models/VacancyOptions";
+// import { itemsLocal } from "../../models/LocalOptions";
+// import { itemsVacancy } from "../../models/VacancyOptions";
 import AnnouncementForm from "../../components/AnnouncementForm";
 import UploadMultiple from "../../components/UploadMultiple";
 import {
@@ -16,14 +16,23 @@ import {
   UploadDiv,
   VacancyFormWrapper,
 } from "./style";
+import {
+  extractAnnouncementFields,
+  extractLocalOptions,
+  extractVacancyOptions,
+} from "../../utils/utils";
+import { getAnnouncement } from "./mock";
 
-const CreateAnnouncement = () => {
+const EditAnnouncement = () => {
+  // substituir isso aqui por requisição
+  const announcement = getAnnouncement();
+
   const [announcementForm] = Form.useForm();
   const [addressForm] = Form.useForm();
 
-  const [numeroVagas, setNumeroVagas] = useState(
-    announcementForm.getFieldValue("numero_de_vagas")
-  );
+  // const [numeroVagas, setNumeroVagas] = useState(
+  //   announcementForm.getFieldValue("numero_de_vagas")
+  // );
 
   const [localOptions, setLocalOptions] = useState({});
 
@@ -42,8 +51,10 @@ const CreateAnnouncement = () => {
     // console.log(allValues);
     console.log(announcementForm.getFieldsValue());
     console.log(announcementForm.getFieldValue("numero_de_vagas"));
-    setNumeroVagas(announcementForm.getFieldValue("numero_de_vagas"));
+    // setNumeroVagas(announcementForm.getFieldValue("numero_de_vagas"));
   };
+
+  console.log(extractAnnouncementFields(announcement));
 
   return (
     <>
@@ -54,6 +65,8 @@ const CreateAnnouncement = () => {
             addressForm={addressForm}
             handleAnnouncementFormValuesChange={handleFormValuesChange}
             handleAddressFormValuesChange={handleFormValuesChange}
+            announcementInitialValues={extractAnnouncementFields(announcement)}
+            addressInitialValues={announcement.address}
           />
           <UploadDiv>
             <h2>Adicionar fotos</h2>
@@ -62,22 +75,24 @@ const CreateAnnouncement = () => {
         </FormDiv>
         <CheckDiv>
           <CheckboxComponent
-            items={itemsLocal}
+            items={extractLocalOptions(announcement)}
             title="Sobre o local"
             setOptions={handleSetLocalOptions}
           />
           <VacancyFormWrapper>
-            {[...Array(numeroVagas).keys()].map((i) => (
+            {announcement.vacancies.map((vacancy, index) => (
               <VacancyForm
-                key={i + 1}
-                items={itemsVacancy}
-                title={`Sobre a vaga ${i + 1}`}
+                key={index + 1}
+                items={extractVacancyOptions(vacancy)}
+                title={`Sobre a vaga ${index + 1}`}
                 setOptions={handleSetVacancyOptions}
+                price={vacancy.price}
+                gender={vacancy.gender}
               />
             ))}
           </VacancyFormWrapper>
           <Button onClick={() => console.log(localOptions, vacancyOptions)}>
-            Criar anúncio
+            Salvar mudanças
           </Button>
         </CheckDiv>
       </Wrapper>
@@ -85,4 +100,4 @@ const CreateAnnouncement = () => {
   );
 };
 
-export default CreateAnnouncement;
+export default EditAnnouncement;

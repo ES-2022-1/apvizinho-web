@@ -1,21 +1,23 @@
 import { CheckboxList, Title, Checkbox, Label, CheckItem } from "./style.js";
 
 const CheckboxComponent = ({ items, title, setOptions }) => {
-  const handleChangeCheckbox = (event, key) => {
-    setOptions(key, event.target.checked);
+  const handleChangeCheckbox = (event, index) => {
+    setOptions(index, event.target.checked);
   };
 
   return (
     <CheckboxList>
       <Title>{title}</Title>
-      {Object.keys(items).map((key) => {
+      {Object.keys(items).map((item, index) => {
+        console.log(item, index);
         return (
-          <CheckItem span={8} key={key}>
+          <CheckItem span={8} key={index}>
             <Checkbox
-              id={key}
-              onChange={(event) => handleChangeCheckbox(event, items[key])}
+              id={index + item}
+              onChange={(event) => handleChangeCheckbox(event, index + item)}
+              checked={items[item]}
             />
-            <Label htmlFor={key}>{key}</Label>
+            <Label htmlFor={index + item}>{item}</Label>
           </CheckItem>
         );
       })}

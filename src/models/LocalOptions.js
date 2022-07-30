@@ -1,10 +1,11 @@
-export const itemsLocalMap = {
-  "Proximo à universidade": "IS_CLOSE_TO_UNIVERSITY",
-  "Proximo à ponto de ônibus": "IS_CLOSE_TO_BUS_STOP",
-  "Proximo à supermercado": "IS_CLOSE_TO_SUPERMARKET",
-  Internet: "HAS_INTERNET",
-  "Permitido pets": "ALLOW_PETS",
-  "Permitido eventos": "ALLOW_EVENTS",
-  "Permitido fumantes": "ALLOWED_SMOKER",
-  "Gás encanando": "HAS_PIPED_GAS",
+export const itemsLocal = {
+  "Proximo à universidade": false,
+  "Proximo à ponto de ônibus": false,
+  "Proximo à supermercado": false,
+  Mobiliado: false,
+  Internet: false,
+  "Permitido pets": false,
+  "Permitido eventos": false,
+  "Permitido fumantes": false,
+  "Gás encanando": false,
 };

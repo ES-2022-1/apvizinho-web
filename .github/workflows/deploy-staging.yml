@@ -19,3 +19,5 @@ jobs:
           heroku_app_name:  ${{ secrets.HEROKU_APP_NAME_STAGING }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           usedocker: true
+        env:
+          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL_STAGING }}
