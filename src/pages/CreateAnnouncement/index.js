@@ -16,33 +16,64 @@ import {
   UploadDiv,
   VacancyFormWrapper,
 } from "./style";
+import { registerAnnouncement } from "../../services/api";
 
 const CreateAnnouncement = () => {
   const [announcementForm] = Form.useForm();
   const [addressForm] = Form.useForm();
 
   const [numeroVagas, setNumeroVagas] = useState(
-    announcementForm.getFieldValue("numero_de_vagas")
+    announcementForm.getFieldValue("vacancies")
   );
 
-  const [localOptions, setLocalOptions] = useState({});
+  const [localOptions, setLocalOptions] = useState(itemsLocal);
 
-  const [vacancyOptions, setVacancyOptions] = useState({});
+  const [vacancyOptions, setVacancyOptions] = useState([
+    { ...itemsVacancy, gender: "NONE", price: 0 },
+  ]);
 
   const handleSetLocalOptions = (index, value) => {
     setLocalOptions({ ...localOptions, [index]: value });
   };
 
-  const handleSetVacancyOptions = (index, value) => {
-    setVacancyOptions({ ...vacancyOptions, [index]: value });
+  const handleSetVacancyOptions = (item, value, index) => {
+    const oldOpt = vacancyOptions[index];
+    const newOpt = { ...oldOpt, [item]: value };
+
+    const newVacancyArray = [
+      ...vacancyOptions.slice(0, index),
+      newOpt,
+      ...vacancyOptions.slice(index + 1),
+    ];
+
+    setVacancyOptions(newVacancyArray);
   };
 
-  const handleFormValuesChange = (/* changedValues, allValues*/) => {
-    // console.log(changedValues);
-    // console.log(allValues);
-    console.log(announcementForm.getFieldsValue());
-    console.log(announcementForm.getFieldValue("numero_de_vagas"));
-    setNumeroVagas(announcementForm.getFieldValue("numero_de_vagas"));
+  const handleFormValuesChange = (changedValues) => {
+    if (Object.keys(changedValues).includes("vacancies")) {
+      const newVacancyQt = changedValues["vacancies"];
+
+      const newVacancyArray = [...Array(newVacancyQt).keys()].map(
+        (i) =>
+          vacancyOptions[i] || { ...itemsVacancy, gender: "NONE", price: 0 }
+      );
+      setVacancyOptions(newVacancyArray);
+
+      setNumeroVagas(newVacancyQt);
+    }
+  };
+
+  const handleSubmit = async () => {
+    const payload = {
+      ...announcementForm.getFieldsValue(),
+      address: { ...addressForm.getFieldsValue() },
+      ...localOptions,
+      vacancies: vacancyOptions,
+    };
+
+    const response = await registerAnnouncement(payload);
+
+    console.log(response);
   };
 
   return (
@@ -62,7 +93,7 @@ const CreateAnnouncement = () => {
         </FormDiv>
         <CheckDiv>
           <CheckboxComponent
-            items={itemsLocal}
+            items={localOptions}
             title="Sobre o local"
             setOptions={handleSetLocalOptions}
           />
@@ -70,15 +101,14 @@ const CreateAnnouncement = () => {
             {[...Array(numeroVagas).keys()].map((i) => (
               <VacancyForm
                 key={i + 1}
-                items={itemsVacancy}
+                index={i}
+                items={vacancyOptions[i]}
                 title={`Sobre a vaga ${i + 1}`}
                 setOptions={handleSetVacancyOptions}
               />
             ))}
           </VacancyFormWrapper>
-          <Button onClick={() => console.log(localOptions, vacancyOptions)}>
-            Criar anúncio
-          </Button>
+          <Button onClick={handleSubmit}>Criar anúncio</Button>
         </CheckDiv>
       </Wrapper>
     </>

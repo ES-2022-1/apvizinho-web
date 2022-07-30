@@ -11,7 +11,6 @@ export const Header = styled(HeaderAntd)`
 
 export const Layout = styled(LayoutAntd)`
   background: #f5f5f5;
-  height: 100vh;
 `;
 
 export const TitleDiv = styled.div`
@@ -29,5 +28,6 @@ export const PageTitle = styled.h1`
 
 export const Wrapper = styled.div`
   width: 100%;
-  padding: 0 300px 0 300px;
+  /* height: 100%; */
+  /* padding: 0 300px 0 300px; */
 `;

@@ -1,23 +1,25 @@
+import { localOptions, vacancyOptions } from "../../utils/utils.js";
 import { CheckboxList, Title, Checkbox, Label, CheckItem } from "./style.js";
 
-const CheckboxComponent = ({ items, title, setOptions }) => {
-  const handleChangeCheckbox = (event, index) => {
-    setOptions(index, event.target.checked);
+const CheckboxComponent = ({ items, index, title, setOptions }) => {
+  const handleChangeCheckbox = (event, item) => {
+    setOptions(item, event.target.checked, index);
   };
+
+  const options = { ...localOptions, ...vacancyOptions };
 
   return (
     <CheckboxList>
       <Title>{title}</Title>
       {Object.keys(items).map((item, index) => {
-        console.log(item, index);
         return (
           <CheckItem span={8} key={index}>
             <Checkbox
-              id={index + item}
-              onChange={(event) => handleChangeCheckbox(event, index + item)}
+              id={item}
+              onChange={(event) => handleChangeCheckbox(event, item)}
               checked={items[item]}
             />
-            <Label htmlFor={index + item}>{item}</Label>
+            <Label htmlFor={item}>{options[item]}</Label>
           </CheckItem>
         );
       })}

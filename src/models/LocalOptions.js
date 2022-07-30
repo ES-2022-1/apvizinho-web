@@ -1,11 +1,9 @@
 export const itemsLocal = {
-  "Proximo à universidade": false,
-  // "Proximo à ponto de ônibus": false,
-  "Proximo à supermercado": false,
-  Mobiliado: false,
-  Internet: false,
-  "Permitido pets": false,
-  "Permitido eventos": false,
-  // "Permitido fumantes": false,
-  "Gás encanando": false,
+  is_close_to_university: false,
+  is_close_to_supermarket: false,
+  has_furniture: false,
+  has_internet: false,
+  allow_pet: false,
+  allow_events: false,
+  has_piped_gas: false,
 };

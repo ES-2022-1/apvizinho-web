@@ -25,9 +25,6 @@ const AnnouncementForm = ({
     console.log("changed", value);
   };
 
-  console.log(addressInitialValues);
-  console.log(announcementInitialValues);
-
   return (
     <Wrapper>
       <VacancyForm
@@ -46,9 +43,9 @@ const AnnouncementForm = ({
         <VacancyForm.Item
           label="Título"
           name="title"
-          wrapperCol={{
-            span: 8,
-          }}
+          // wrapperCol={{
+          //   span: 8,
+          // }}
           rules={[
             {
               required: true,
@@ -89,13 +86,7 @@ const AnnouncementForm = ({
             placeholder="1"
           />
         </VacancyForm.Item>
-        <VacancyForm.Item
-          label="Descrição"
-          name="description"
-          wrapperCol={{
-            span: 10,
-          }}
-        >
+        <VacancyForm.Item label="Descrição" name="description">
           <TextArea showCount maxLength={200} onChange={onDescriptionChange} />
         </VacancyForm.Item>
       </VacancyForm>

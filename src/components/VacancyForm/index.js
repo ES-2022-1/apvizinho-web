@@ -1,21 +1,36 @@
-import { Select, Input, Wrapper } from "./style.js";
+import React from "react";
+
+import { Select, InputNumber, Wrapper } from "./style.js";
 import CheckboxComponent from "../Checkbox";
 
-const VacancyForm = ({ items, title, setOptions, price, gender }) => {
+const VacancyForm = ({ items, index, title, setOptions }) => {
+  const checkListOptions = Object.keys(items).reduce((prev, curr) => {
+    if (curr !== "price" && curr !== "gender")
+      return { ...prev, [curr]: items[curr] };
+    else return prev;
+  }, {});
+
   return (
     <>
       <Wrapper>
         <CheckboxComponent
-          items={items}
+          items={checkListOptions}
+          index={index}
           title={title}
           setOptions={setOptions}
         />
-        <Input
-          type="text"
-          defaultValue={price}
+        <InputNumber
+          min={0}
+          addonBefore="R$"
           placeholder="Valor (ex: 200,00)"
+          type="text"
+          defaultValue={items["price"]}
+          onChange={(value) => setOptions("price", value, index)}
         />
-        <Select defaultValue={gender}>
+        <Select
+          defaultValue={items["gender"]}
+          onChange={(value) => setOptions("gender", value, index)}
+        >
           <option value="" hidden>
             Gênero
           </option>

@@ -25,9 +25,9 @@ const Router = () => {
       return <Navigate to="/announcements" />;
     }
 
-    if (!!access_token && !isPrivate) {
-      return <Navigate to="/user" />;
-    }
+    // if (!!access_token && !isPrivate) {
+    //   return <Navigate to="/user" />;
+    // }
 
     const Layout = isPrivate ? PrivateLayout : PublicLayout;
 
@@ -49,7 +49,7 @@ const Router = () => {
           path="/forgotPassword"
         />
         <Route
-          element={routeElement(false, EditUser, "Editar user")}
+          element={routeElement(true, EditUser, "Editar user")}
           path="/editUser"
         />
         <Route

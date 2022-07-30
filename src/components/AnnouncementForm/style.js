@@ -3,13 +3,17 @@ import { Button as ButtonAntd, Form as FormAntd } from "antd";
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-left: 40px;
+  gap: 4.75rem;
+  /* justify-content: space-between; */
+  /* margin-left: 40px; */
 `;
 
 export const VacancyForm = styled(FormAntd)`
   display: flex;
   flex-direction: column;
+  /* .ant-form-item-control {
+    width: 100%;
+  } */
 `;
 
 export const AddressForm = styled(FormAntd)`
@@ -19,9 +23,8 @@ export const AddressForm = styled(FormAntd)`
 
 export const RowItem = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  gap: 40px;
+  gap: 2.5rem;
 `;
 
 export const Button = styled(ButtonAntd)`

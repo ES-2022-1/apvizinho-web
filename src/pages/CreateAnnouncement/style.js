@@ -11,25 +11,25 @@ export const H1 = styled.h1`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
+  padding: 0 2.5rem;
 `;
 
 export const FormDiv = styled.div`
-  width: 60%;
-  height: 100%;
+  /* width: 60%;
+  height: 100%; */
 `;
 
 export const CheckDiv = styled.div`
-  width: 30%;
-  height: 100%;
+  /* width: 30%;
+  height: 100%; */
 `;
 export const UploadDiv = styled.div`
-  margin-left: 50px;
+  /* margin-left: 50px;
   margin-top: 50px;
-  max-width: 25rem;
+  max-width: 25rem; */
 `;
 
 export const Button = styled(ButtonAntd)`

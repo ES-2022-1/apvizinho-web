@@ -38,3 +38,23 @@ export const extractUserOptions = (user) => ({
   Descrição: user.bio,
   Senha: user.password,
 });
+
+export const vacancyOptions = {
+  has_bathroom: "Suíte",
+  has_garage: "Garagem inclusa",
+  has_furniture: "Mobília inclusa",
+  has_cable_internet: "Internet cabeada",
+  is_shared_room: "Quarto compartilhado",
+  required_extroverted_person: "Pessoa extrovertida",
+  required_organized_person: "Pessoa organizada",
+};
+
+export const localOptions = {
+  is_close_to_university: "Proximo à universidade",
+  is_close_to_supermarket: "Proximo à supermercado",
+  has_furniture: "Mobiliado",
+  has_internet: "Internet",
+  allow_pet: "Permitido pets",
+  allow_events: "Permitido eventos",
+  has_piped_gas: "Gás encanando",
+};
