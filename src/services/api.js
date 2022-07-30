@@ -1,13 +1,18 @@
 import axios from "axios";
 
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 console.log(baseURL);
 
 const api = axios.create({ baseURL });
 
+const getAuthToken = () => {
+  return sessionStorage.getItem("access_token");
+};
+
 export const registerUser = async (payload) => {
-  const response = await api.post("/user", payload);
+  console.log(payload);
+  const response = await api.post("/user/", payload);
 
   return response;
 };
@@ -19,19 +24,26 @@ export const login = async (payload) => {
 };
 
 export const listUser = async () => {
-  const response = await api.get("/user/");
+  let token = getAuthToken();
+  const response = await api.get("/user/", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
   return response;
 };
 
 export const registerAnnouncement = async (payload) => {
-  const response = await api.post("/announcement", payload);
+  const response = await api.post("/announcement", payload, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
 
   return response;
 };
 
 export const listAnnouncement = async () => {
-  const response = await api.get("/announcement/");
+  const response = await api.get("/announcement/", {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
 
   return response;
 };
