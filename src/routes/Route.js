@@ -19,6 +19,10 @@ export default function RouteWrapper({
     return <Route path="/" element={<Navigate to="/announcements" />} />;
   }
 
+  if (!access_token && !isPrivate) {
+    return <Route path="/" element={<Navigate to="/user" />} />;
+  }
+
   const Layout = isPrivate ? PrivateLayout : PublicLayout;
 
   return (
