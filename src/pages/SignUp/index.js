@@ -1,9 +1,11 @@
 import React from "react";
 import { Button, Input } from "antd";
+import { useNavigate } from "react-router-dom";
 import { Wrapper, Form } from "./style.js";
 import { registerUser } from "../../services/api.js";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const onFinish = async (values) => {
     const payload = {
       firstname: values.nome,
@@ -14,9 +16,9 @@ const SignUp = () => {
       birthdate: values.data_nascimento,
       password: values.senha,
     };
-
-    await registerUser(payload);
-    console.log("Success:", payload);
+    const response = await registerUser(payload);
+    navigate("/login");
+    console.log(response);
   };
 
   const onFinishFailed = (errorInfo) => {
