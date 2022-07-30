@@ -1,8 +1,7 @@
 import React from "react";
 import { Button, Input } from "antd";
 import { Wrapper, Form, Link } from "./style.js";
-import api, { login } from "../../services/api.js";
-
+import { login } from "../../services/api.js";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
@@ -13,8 +12,7 @@ const LogIn = () => {
 
     login(values)
       .then(({ data }) => {
-        localStorage.setItem("access_token", data.access_token);
-        api.defaults.headers.Authorization = `Bearer ${data.access_token}`;
+        sessionStorage.setItem("access_token", data.access_token);
         navigate("/announcements");
       })
       .catch((err) => console.log(err));
