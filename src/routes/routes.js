@@ -13,7 +13,7 @@ import PublicLayout from "../pages/_layouts/PublicLayout";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
-    const access_token = localStorage.getItem("access_token");
+    const access_token = sessionStorage.getItem("access_token");
     console.log(access_token);
 
     if (!access_token && isPrivate) {

@@ -9,7 +9,7 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }) {
-  const access_token = localStorage.getItem("access_token");
+  const access_token = sessionStorage.getItem("access_token");
 
   if (!access_token && isPrivate) {
     return <Route path="/" element={<Navigate to="/login" />} />;
