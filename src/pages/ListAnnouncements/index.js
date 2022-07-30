@@ -3,12 +3,15 @@ import { Input } from "antd";
 import { Container, Wrapper, WrapperSearch } from "./style";
 import AnnouncementCard from "../../components/AnnouncementCard/index";
 import ShowDrawer from "../../components/FilterAnnouncement/FilterDrawer";
+import { listAnnouncement } from "../../services/api";
 
 export const ListAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
-    setAnnouncements([...announcements]);
+    listAnnouncement().then((response) => {
+      setAnnouncements(response.data);
+    });
   }, []);
 
   return (
