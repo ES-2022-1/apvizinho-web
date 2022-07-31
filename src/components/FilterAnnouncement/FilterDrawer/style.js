@@ -6,8 +6,8 @@ import {
 } from "antd";
 
 const Select = styled(SelectAntd)`
-  width: 209px;
   padding-left: 10px;
+  width: 180px !important;
 `;
 
 const Drawer = styled(DrawerAntd)`
