@@ -1,23 +1,50 @@
-import { Drawer, Space, Button } from "antd";
-import { ButtonRed } from "./style";
+import { Drawer, Space } from "antd";
+import { ButtonRed, Select } from "./style";
 import React, { useState } from "react";
-import { FilterOutlined } from "@ant-design/icons";
 import CheckBox from "../../../components/Checkbox";
-import VacancyForm from "../../VacancyForm";
-import { itemsLocal } from "../../../models/LocalOptions";
-import { itemsVacancy } from "../../../models/VacancyOptions";
+import { Option } from "antd/lib/mentions";
 
-const ShowDrawer = ({ type }) => {
-  const [localOptions, setLocalOptions] = useState({});
-
-  const [vacancyOptions, setVacancyOptions] = useState({});
-
-  const handleSetLocalOptions = (index, value) => {
-    setLocalOptions({ ...localOptions, [index]: value });
+const ShowDrawer = () => {
+  const itemsLocal = {
+    IS_CLOSE_TO_UNIVERSITY: "Proximo à universidade",
+    IS_CLOSE_TO_SUPERMARKET: "Proximo à supermercado",
+    HAS_FURNITURE: "Mobiliado",
+    HAS_INTERNET: "Internet",
+    ALLOW_PETS: "Permitido pets",
+    ALLOW_EVENTS: "Permitido eventos",
+    ALLOWED_SMOKER: "Permitido fumantes",
+    HAS_PIPED_GAS: "Gás encanando",
   };
 
-  const handleSetVacancyOptions = (index, value) => {
-    setVacancyOptions({ ...vacancyOptions, [index]: value });
+  const itemsVacancy = {
+    HAS_BATHROOM: "Suíte",
+    IS_SHARED_ROOM: "Quarto compartilhado",
+    REQUIRED_EXTROVERTED_PERSON: "Pessoa extrovertida",
+    REQUIRED_ORGANIZED_PERSON: "Pessoa organizada",
+  };
+
+  const [filterOptions, setFilterOptions] = useState([]);
+  const [gender, setGender] = useState("");
+
+  const filters = () => {
+    return [...filterOptions, gender];
+  };
+
+  console.log(filters());
+
+  const handleAddFilter = (filterOption) => {
+    setFilterOptions([...filterOptions, filterOption]);
+  };
+
+  const handleRemoveFilter = (filterOption) => {
+    const updatedOptions = filterOptions.filter(
+      (elem) => elem !== filterOption
+    );
+    setFilterOptions(updatedOptions);
+  };
+
+  const alreadyFiltered = (filterOption) => {
+    return filterOptions.includes(filterOption);
   };
 
   const [visible, setVisible] = useState(false);
@@ -34,11 +61,9 @@ const ShowDrawer = ({ type }) => {
   return (
     <>
       <Space>
-        <Button
-          type={type ? type : "default"}
-          onClick={showDrawer}
-          icon={<FilterOutlined />}
-        />
+        <ButtonRed type="primary" onClick={showDrawer}>
+          Filtrar
+        </ButtonRed>
       </Space>
       <Drawer
         title="Filtro"
@@ -48,7 +73,6 @@ const ShowDrawer = ({ type }) => {
         visible={visible}
         key={placement}
         extra={[
-          <Button key="2">Cancelar</Button>,
           <ButtonRed key="1" type="primary">
             OK
           </ButtonRed>,
@@ -57,13 +81,27 @@ const ShowDrawer = ({ type }) => {
         <CheckBox
           items={itemsLocal}
           title="Sobre o local"
-          setOptions={handleSetLocalOptions}
+          handleAddFilter={handleAddFilter}
+          handleRemoveFilter={handleRemoveFilter}
+          alreadyFiltered={alreadyFiltered}
         />
-        <VacancyForm
+        <CheckBox
           items={itemsVacancy}
           title="Sobre a vaga"
-          setOptions={handleSetVacancyOptions}
+          handleAddFilter={handleAddFilter}
+          handleRemoveFilter={handleRemoveFilter}
+          alreadyFiltered={alreadyFiltered}
         />
+        <div>Gênero: </div>
+        <Select
+          onChange={(value) => {
+            setGender(value);
+          }}
+        >
+          <Option value="FEMALE_GENDER">Feminino</Option>
+          <Option value="MALE_GENDER">Masculino</Option>
+          <Option value="none">Não especificado</Option>
+        </Select>
       </Drawer>
     </>
   );
