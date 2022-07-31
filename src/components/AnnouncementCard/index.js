@@ -5,8 +5,11 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { CardLink } from "./style";
+import { useNavigate } from "react-router-dom";
 
 const AnnouncementCard = ({ announcement }) => {
+  const navigate = useNavigate();
+
   return (
     <Card
       title={announcement.title}
@@ -18,6 +21,11 @@ const AnnouncementCard = ({ announcement }) => {
         <EditOutlined key="edit" />,
         <EllipsisOutlined key="ellipsis" />,
       ]}
+      onClick={() =>
+        navigate(`editAnnouncement/${announcement.id_announcement}`, {
+          replace: true,
+        })
+      }
     >
       <p>{announcement.description}</p>
     </Card>

@@ -2,9 +2,10 @@ import React from "react";
 
 import { Select, InputNumber, Wrapper } from "./style.js";
 import CheckboxComponent from "../CheckboxForm";
+import { vacancyOptions } from "../../utils/utils.js";
 
 const VacancyForm = ({ items, index, title, setOptions }) => {
-  const checkListOptions = Object.keys(items).reduce((prev, curr) => {
+  const checkListOptions = Object.keys(vacancyOptions).reduce((prev, curr) => {
     if (curr !== "price" && curr !== "gender")
       return { ...prev, [curr]: items[curr] };
     else return prev;
@@ -24,11 +25,11 @@ const VacancyForm = ({ items, index, title, setOptions }) => {
           addonBefore="R$"
           placeholder="Valor (ex: 200,00)"
           type="text"
-          defaultValue={items["price"]}
+          value={items["price"]}
           onChange={(value) => setOptions("price", value, index)}
         />
         <Select
-          defaultValue={items["gender"]}
+          value={items["gender"]}
           onChange={(value) => setOptions("gender", value, index)}
         >
           <option value="" hidden>

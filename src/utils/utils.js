@@ -9,25 +9,25 @@ export const extractAnnouncementFields = ({
 });
 
 export const extractVacancyOptions = (vacancy) => ({
-  Suíte: vacancy.has_bathroom,
-  "Garagem inclusa": vacancy.has_garage,
-  "Mobília inclusa": vacancy.has_furniture,
-  "Internet cabeada": vacancy.has_cable_internet,
-  "Quarto compartilhado": vacancy.is_shared_room,
-  "Pessoa extrovertida": vacancy.required_extroverted_person,
-  "Pessoa organizada": vacancy.required_organized_person,
+  has_bathroom: vacancy.has_bathroom,
+  has_garage: vacancy.has_garage,
+  has_furniture: vacancy.has_furniture,
+  has_cable_internet: vacancy.has_cable_internet,
+  is_shared_room: vacancy.is_shared_room,
+  required_extroverted_person: vacancy.required_extroverted_person,
+  required_organized_person: vacancy.required_organized_person,
+  gender: vacancy.gender,
+  price: vacancy.price,
 });
 
 export const extractLocalOptions = (announcement) => ({
-  "Proximo à universidade": announcement.is_close_to_university,
-  // "Proximo à ponto de ônibus": announcement.,
-  "Proximo à supermercado": announcement.is_close_to_supermarket,
-  Mobiliado: announcement.has_furniture,
-  Internet: announcement.has_internet,
-  "Permitido pets": announcement.allow_pet,
-  "Permitido eventos": announcement.allow_events,
-  // "Permitido fumantes": announcement.,
-  "Gás encanando": announcement.has_piped_gas,
+  is_close_to_university: announcement.is_close_to_university,
+  is_close_to_supermarket: announcement.is_close_to_supermarket,
+  has_furniture: announcement.has_furniture,
+  has_internet: announcement.has_internet,
+  allow_pet: announcement.allow_pet,
+  allow_events: announcement.allow_events,
+  has_piped_gas: announcement.has_piped_gas,
 });
 
 export const extractUserOptions = (user) => ({

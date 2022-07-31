@@ -98,4 +98,52 @@ export const uploadAnnoucementImages = async (idAnnoucement, formData) => {
   return response;
 };
 
+export const getAnnouncement = async (idAnnoucement) => {
+  const response = await api.get(`/announcement/${idAnnoucement}`, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const updateAnnouncement = async (idAnnoucement, payload) => {
+  const response = await api.put(`/announcement/${idAnnoucement}`, payload, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const updateAddress = async (idAddress, payload) => {
+  const response = await api.put(`/address/${idAddress}`, payload, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const updateVacancy = async (idVacancy, payload) => {
+  const response = await api.put(`/vacancy/${idVacancy}`, payload, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const addVacancy = async (payload) => {
+  const response = await api.post(`/vacancy/`, payload, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const deleteVacancy = async (idVacancy) => {
+  const response = await api.delete(`/vacancy/${idVacancy}`, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
 export default api;
