@@ -22,7 +22,7 @@ const AnnouncementCard = ({ announcement }) => {
         <EllipsisOutlined key="ellipsis" />,
       ]}
       onClick={() =>
-        navigate(`editAnnouncement/${announcement.id_announcement}`, {
+        navigate(`announcement/${announcement.id_announcement}`, {
           replace: true,
         })
       }
