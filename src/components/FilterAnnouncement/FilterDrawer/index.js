@@ -2,7 +2,7 @@ import { Drawer, Space, Button } from "antd";
 import { ButtonRed } from "./style";
 import React, { useState } from "react";
 import { FilterOutlined } from "@ant-design/icons";
-import CheckBox from "../../../components/Checkbox";
+import CheckBox from "../../CheckboxForm";
 import VacancyForm from "../../VacancyForm";
 import { itemsLocal } from "../../../models/LocalOptions";
 import { itemsVacancy } from "../../../models/VacancyOptions";

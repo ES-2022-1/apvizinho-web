@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Select, InputNumber, Wrapper } from "./style.js";
-import CheckboxComponent from "../Checkbox";
+import CheckboxComponent from "../CheckboxForm";
 
 const VacancyForm = ({ items, index, title, setOptions }) => {
   const checkListOptions = Object.keys(items).reduce((prev, curr) => {

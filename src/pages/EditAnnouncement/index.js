@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Form } from "antd";
 
-import CheckboxComponent from "../../components/Checkbox";
+import CheckboxComponent from "../../components/CheckboxForm";
 import VacancyForm from "../../components/VacancyForm";
 // import { itemsLocal } from "../../models/LocalOptions";
 // import { itemsVacancy } from "../../models/VacancyOptions";
