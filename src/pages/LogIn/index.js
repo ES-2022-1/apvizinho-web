@@ -8,8 +8,6 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    console.log(values);
-
     login(values)
       .then(({ data }) => {
         sessionStorage.setItem("access_token", data.access_token);

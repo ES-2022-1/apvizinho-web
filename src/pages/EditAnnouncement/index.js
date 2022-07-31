@@ -154,8 +154,6 @@ const EditAnnouncement = () => {
       );
   }, []);
 
-  // console.log(extractAnnouncementFields(announcement));
-
   return (
     <>
       {announcement ? (

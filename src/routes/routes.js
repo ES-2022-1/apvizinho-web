@@ -15,7 +15,6 @@ import EditUser from "../pages/EditUser";
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
     const access_token = sessionStorage.getItem("access_token");
-    console.log(access_token);
 
     if (!access_token && isPrivate) {
       return <Navigate to="/login" />;

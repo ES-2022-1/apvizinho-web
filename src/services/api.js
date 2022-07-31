@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 
-console.log(baseURL);
-
 const api = axios.create({ baseURL });
 
 const getAuthToken = () => {
@@ -20,7 +18,6 @@ api.interceptors.request.use(
     if (access_token) {
       const obj = jwtDecode(access_token);
 
-      console.log(obj);
       const expirationTime = obj.exp * 1000 - 60000;
 
       if (Date.now() > expirationTime) {
@@ -35,8 +32,6 @@ api.interceptors.request.use(
         return Promise.reject("Session expired");
       }
     }
-
-    console.log(config);
     return config;
   },
   (error) => {
@@ -46,7 +41,6 @@ api.interceptors.request.use(
 );
 
 export const registerUser = async (payload) => {
-  console.log(payload);
   const response = await api.post("/user/", payload);
 
   return response;

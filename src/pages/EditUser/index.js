@@ -16,8 +16,6 @@ const EditUser = () => {
     setUserOptions({ ...userOptions, [index]: value });
   };
 
-  console.log(extractUserOptions(user));
-
   return (
     <Wrapper>
       <FormDiv>

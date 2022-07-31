@@ -83,7 +83,6 @@ const CreateAnnouncement = () => {
 
     registerAnnouncement(payload)
       .then((response) => {
-        console.log(response);
         setCreated(true);
         setIdAnnoucement(response.data.id_announcement);
       })
