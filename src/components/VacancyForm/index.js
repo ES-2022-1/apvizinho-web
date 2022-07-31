@@ -36,7 +36,7 @@ const VacancyForm = ({ items, index, title, setOptions }) => {
           </option>
           <option value="FEMALE">Feminino</option>
           <option value="MALE">Masculino</option>
-          <option value="NONE">Não especificado</option>
+          <option value="UNKNOWN">Não especificado</option>
         </Select>
       </Wrapper>
     </>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-import { Form } from "antd";
+import jwtDecode from "jwt-decode";
+
+import { Form, notification } from "antd";
 
 import CheckboxComponent from "../../components/Checkbox";
 import VacancyForm from "../../components/VacancyForm";
@@ -29,8 +31,11 @@ const CreateAnnouncement = () => {
   const [localOptions, setLocalOptions] = useState(itemsLocal);
 
   const [vacancyOptions, setVacancyOptions] = useState([
-    { ...itemsVacancy, gender: "NONE", price: 0 },
+    { ...itemsVacancy, gender: "UNKNOWN", price: 0 },
   ]);
+
+  const [created, setCreated] = useState(false);
+  const [idAnnoucement, setIdAnnoucement] = useState("");
 
   const handleSetLocalOptions = (index, value) => {
     setLocalOptions({ ...localOptions, [index]: value });
@@ -55,7 +60,7 @@ const CreateAnnouncement = () => {
 
       const newVacancyArray = [...Array(newVacancyQt).keys()].map(
         (i) =>
-          vacancyOptions[i] || { ...itemsVacancy, gender: "NONE", price: 0 }
+          vacancyOptions[i] || { ...itemsVacancy, gender: "UNKNOWN", price: 0 }
       );
       setVacancyOptions(newVacancyArray);
 
@@ -64,54 +69,70 @@ const CreateAnnouncement = () => {
   };
 
   const handleSubmit = async () => {
+    const access_token = sessionStorage.getItem("access_token");
+    const { id_user } = jwtDecode(access_token);
+
     const payload = {
       ...announcementForm.getFieldsValue(),
       address: { ...addressForm.getFieldsValue() },
       ...localOptions,
       vacancies: vacancyOptions,
+      id_user,
+      type: "HOUSE",
     };
 
-    const response = await registerAnnouncement(payload);
-
-    console.log(response);
+    registerAnnouncement(payload)
+      .then((response) => {
+        console.log(response);
+        setCreated(true);
+        setIdAnnoucement(response.data.id_announcement);
+      })
+      .catch((err) =>
+        notification.error({
+          message: err,
+        })
+      );
   };
 
   return (
-    <>
-      <Wrapper>
-        <FormDiv>
-          <AnnouncementForm
-            announcementForm={announcementForm}
-            addressForm={addressForm}
-            handleAnnouncementFormValuesChange={handleFormValuesChange}
-            handleAddressFormValuesChange={handleFormValuesChange}
-          />
-          <UploadDiv>
-            <h2>Adicionar fotos</h2>
-            <UploadMultiple />
-          </UploadDiv>
-        </FormDiv>
-        <CheckDiv>
-          <CheckboxComponent
-            items={localOptions}
-            title="Sobre o local"
-            setOptions={handleSetLocalOptions}
-          />
-          <VacancyFormWrapper>
-            {[...Array(numeroVagas).keys()].map((i) => (
-              <VacancyForm
-                key={i + 1}
-                index={i}
-                items={vacancyOptions[i]}
-                title={`Sobre a vaga ${i + 1}`}
-                setOptions={handleSetVacancyOptions}
-              />
-            ))}
-          </VacancyFormWrapper>
-          <Button onClick={handleSubmit}>Criar anúncio</Button>
-        </CheckDiv>
-      </Wrapper>
-    </>
+    <Wrapper>
+      {created ? (
+        <UploadDiv>
+          <h2>Adicionar fotos</h2>
+          <UploadMultiple idAnnoucement={idAnnoucement} />
+        </UploadDiv>
+      ) : (
+        <>
+          <FormDiv>
+            <AnnouncementForm
+              announcementForm={announcementForm}
+              addressForm={addressForm}
+              handleAnnouncementFormValuesChange={handleFormValuesChange}
+              handleAddressFormValuesChange={handleFormValuesChange}
+            />
+          </FormDiv>
+          <CheckDiv>
+            <CheckboxComponent
+              items={localOptions}
+              title="Sobre o local"
+              setOptions={handleSetLocalOptions}
+            />
+            <VacancyFormWrapper>
+              {[...Array(numeroVagas).keys()].map((i) => (
+                <VacancyForm
+                  key={i + 1}
+                  index={i}
+                  items={vacancyOptions[i]}
+                  title={`Sobre a vaga ${i + 1}`}
+                  setOptions={handleSetVacancyOptions}
+                />
+              ))}
+            </VacancyFormWrapper>
+            <Button onClick={handleSubmit}>Criar anúncio</Button>
+          </CheckDiv>
+        </>
+      )}
+    </Wrapper>
   );
 };
 

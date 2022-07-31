@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
   /* padding-top: 40px; */
   display: flex;
   justify-content: space-between;
-  padding: 0 2.5rem;
 `;
 
 export const FormDiv = styled.div`

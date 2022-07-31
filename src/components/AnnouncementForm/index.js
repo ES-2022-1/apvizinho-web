@@ -214,7 +214,16 @@ const AnnouncementForm = ({
             <Input placeholder="CEP" />
           </AddressForm.Item>
         </RowItem> */}
-        <AddressForm.Item label="Complemento" name="complement">
+        <AddressForm.Item
+          label="Complemento"
+          name="complement"
+          rules={[
+            {
+              required: true,
+              message: "Insira o complemento",
+            },
+          ]}
+        >
           <Input placeholder="Complemento" />
         </AddressForm.Item>
       </AddressForm>

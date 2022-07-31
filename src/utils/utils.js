@@ -45,6 +45,7 @@ export const vacancyOptions = {
   has_furniture: "Mobília inclusa",
   has_cable_internet: "Internet cabeada",
   is_shared_room: "Quarto compartilhado",
+  allowed_smoker: "Permitido fumantes",
   required_extroverted_person: "Pessoa extrovertida",
   required_organized_person: "Pessoa organizada",
 };
