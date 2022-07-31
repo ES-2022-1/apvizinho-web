@@ -34,7 +34,6 @@ const ShowDrawer = () => {
 
   const handleAddFilter = (filterOption) => {
     setFilterOptions([...filterOptions, filterOption]);
-    console.log(filterOptions);
   };
 
   const handleRemoveFilter = (filterOption) => {
@@ -42,7 +41,6 @@ const ShowDrawer = () => {
       (elem) => elem !== filterOption
     );
     setFilterOptions(updatedOptions);
-    console.log(filterOptions);
   };
 
   const alreadyFiltered = (filterOption) => {
