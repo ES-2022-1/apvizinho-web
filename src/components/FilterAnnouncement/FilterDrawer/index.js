@@ -1,7 +1,7 @@
 import { Drawer, Space } from "antd";
 import { ButtonRed, Select } from "./style";
 import React, { useState } from "react";
-import CheckBox from "../../../components/Checkbox";
+import CheckBox from "../../../components/CheckboxFilter";
 import { Option } from "antd/lib/mentions";
 
 const ShowDrawer = () => {

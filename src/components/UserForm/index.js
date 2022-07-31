@@ -12,8 +12,6 @@ const UserForm = ({
   bio,
   password,
 }) => {
-  console.log(userInitialValues);
-
   return (
     <Wrapper>
       <UserForm

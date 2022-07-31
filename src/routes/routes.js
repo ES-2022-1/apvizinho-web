@@ -15,7 +15,6 @@ import EditUser from "../pages/EditUser";
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
     const access_token = sessionStorage.getItem("access_token");
-    console.log(access_token);
 
     if (!access_token && isPrivate) {
       return <Navigate to="/login" />;
@@ -25,9 +24,9 @@ const Router = () => {
       return <Navigate to="/announcements" />;
     }
 
-    if (!!access_token && !isPrivate) {
-      return <Navigate to="/user" />;
-    }
+    // if (!!access_token && !isPrivate) {
+    //   return <Navigate to="/user" />;
+    // }
 
     const Layout = isPrivate ? PrivateLayout : PublicLayout;
 
@@ -49,7 +48,7 @@ const Router = () => {
           path="/forgotPassword"
         />
         <Route
-          element={routeElement(false, EditUser, "Editar user")}
+          element={routeElement(true, EditUser, "Editar user")}
           path="/editUser"
         />
         <Route
@@ -58,7 +57,7 @@ const Router = () => {
         />
         <Route
           element={routeElement(true, EditAnnouncement, "Editar anúncio")}
-          path="/editAnnouncement"
+          path="/editAnnouncement/:announcementId"
         />
         <Route
           element={routeElement(true, ListAnnouncements)}

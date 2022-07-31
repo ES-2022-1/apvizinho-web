@@ -23,10 +23,13 @@ export const Wrapper = styled.div`
 export const WrapperSearch = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   margin-bottom: 6em;
   gap: 1rem;
+  .ant-input-search {
+    max-width: 31.25rem;
+  }
 `;

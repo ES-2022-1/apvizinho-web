@@ -1,6 +1,6 @@
 import React from "react";
 import { Header, Layout, PageTitle, Wrapper, TitleDiv } from "./style";
-import { Button } from "antd";
+import { Button, Divider } from "antd";
 
 const { Content } = Layout;
 
@@ -15,6 +15,7 @@ const PrivateLayout = ({ children, title }) => (
         <TitleDiv>
           <PageTitle>{title}</PageTitle>
         </TitleDiv>
+        <Divider />
         <Content>{children}</Content>
       </Wrapper>
     </Layout>
