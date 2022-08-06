@@ -46,6 +46,13 @@ export const listAnnouncement = async () => {
   return response;
 };
 
+export const listAnnouncementFilter = async (payload) => {
+  const response = await api.post("/announcement/filter", payload, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+  return response;
+};
+
 export const uploadAnnoucementImages = async (idAnnoucement, formData) => {
   const response = await api.post(
     `/announcement/${idAnnoucement}/upload`,

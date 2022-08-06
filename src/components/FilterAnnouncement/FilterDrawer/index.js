@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import CheckBox from "../../../components/CheckboxFilter";
 import { Option } from "antd/lib/mentions";
 
-const ShowDrawer = () => {
+const ShowDrawer = ({ onSubmitFilters }) => {
   const itemsLocal = {
     IS_CLOSE_TO_UNIVERSITY: "Proximo à universidade",
     IS_CLOSE_TO_SUPERMARKET: "Proximo à supermercado",
@@ -27,10 +27,9 @@ const ShowDrawer = () => {
   const [gender, setGender] = useState("");
 
   const filters = () => {
-    return [...filterOptions, gender];
+    const filters = gender ? [...filterOptions, gender] : filterOptions;
+    return filters;
   };
-
-  console.log(filters());
 
   const handleAddFilter = (filterOption) => {
     setFilterOptions([...filterOptions, filterOption]);
@@ -58,6 +57,12 @@ const ShowDrawer = () => {
     setVisible(false);
   };
 
+  const handleOk = () => {
+    const filtersSelected = filters();
+    onSubmitFilters(filtersSelected);
+    setVisible(false);
+  };
+
   return (
     <>
       <Space>
@@ -73,7 +78,7 @@ const ShowDrawer = () => {
         visible={visible}
         key={placement}
         extra={[
-          <ButtonRed key="1" type="primary">
+          <ButtonRed key="1" type="primary" onClick={handleOk}>
             OK
           </ButtonRed>,
         ]}

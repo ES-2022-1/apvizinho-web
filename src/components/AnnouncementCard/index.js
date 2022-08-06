@@ -1,19 +1,30 @@
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { EditOutlined } from "@ant-design/icons";
 import { Card, CardLink } from "./style";
 import { useNavigate } from "react-router-dom";
 
-const AnnouncementCard = ({ announcement }) => {
+const AnnouncementCard = ({ announcement, canEdit }) => {
   const navigate = useNavigate();
+
+  const handleClickEditIcon = (event) => {
+    console.log(event);
+    event.preventDefault();
+    navigate(`../editAnnouncement/${announcement.id_announcement}`);
+  };
 
   return (
     <Card
       title={announcement.title}
       hoverable
-      extra={<CardLink href={announcement.link}>more</CardLink>}
+      extra={
+        <CardLink
+          href={announcement.link}
+          onClick={() =>
+            navigate(`../announcement/${announcement.id_announcement}`)
+          }
+        >
+          more
+        </CardLink>
+      }
       style={{ width: 300 }}
       cover={
         <img
@@ -22,13 +33,8 @@ const AnnouncementCard = ({ announcement }) => {
           src={announcement.cover || "image_fault.png"}
         />
       }
-      actions={[
-        <SettingOutlined key="setting" />,
-        <EditOutlined key="edit" />,
-        <EllipsisOutlined key="ellipsis" />,
-      ]}
-      onClick={() =>
-        navigate(`../announcement/${announcement.id_announcement}`)
+      actions={
+        canEdit && [<EditOutlined key="edit" onClick={handleClickEditIcon} />]
       }
     >
       <p>{announcement.description}</p>

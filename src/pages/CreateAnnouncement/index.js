@@ -69,7 +69,7 @@ const CreateAnnouncement = () => {
   };
 
   const handleSubmit = async () => {
-    const { id_user } = localStorage.getItem("@Apvizinho:user");
+    const { id_user } = JSON.parse(localStorage.getItem("@Apvizinho:user"));
     // const { id_user } = jwtDecode(access_token);
 
     const payload = {
