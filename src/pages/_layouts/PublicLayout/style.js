@@ -5,7 +5,7 @@ import styled from "styled-components";
 const { Header: HeaderAntd, Sider: SiderAntd, Footer: FooterAntd } = LayoutAntd;
 
 export const Layout = styled(LayoutAntd)`
-  background: #f5f5f5;
+  background: #fff;
   &#main-layout {
     height: 100vh;
   }

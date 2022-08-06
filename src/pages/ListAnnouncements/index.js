@@ -3,10 +3,19 @@ import { Input } from "antd";
 import { Container, Wrapper, WrapperSearch } from "./style";
 import AnnouncementCard from "../../components/AnnouncementCard/index";
 import ShowDrawer from "../../components/FilterAnnouncement/FilterDrawer";
-import { listAnnouncement } from "../../services/api";
+import { listAnnouncement, listAnnouncementFilter } from "../../services/api";
 
 export const ListAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
+
+  const onSumitFilters = async (filters) => {
+    const payload = {
+      filters,
+    };
+
+    const response = await listAnnouncementFilter(payload);
+    setAnnouncements(response.data);
+  };
 
   useEffect(() => {
     listAnnouncement().then((response) => {
@@ -22,12 +31,16 @@ export const ListAnnouncements = () => {
           onSearch={(value) => console.log(value)}
           allowClear
         />
-        <ShowDrawer />
+        <ShowDrawer onSubmitFilters={onSumitFilters} />
       </WrapperSearch>
       <Wrapper>
         {announcements.map((announcement) => (
           <AnnouncementCard
             key={announcement.title}
+            canEdit={
+              announcement.id_user ===
+              JSON.parse(localStorage.getItem("@Apvizinho:user")).id_user
+            }
             announcement={announcement}
           />
         ))}

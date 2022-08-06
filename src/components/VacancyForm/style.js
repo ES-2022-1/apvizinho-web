@@ -1,34 +1,38 @@
 import styled from "styled-components";
 
+import { Select as SelectAntd, InputNumber as InputNumberAntd } from "antd";
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Select = styled.select`
+const Select = styled(SelectAntd)`
   width: 150px;
-  height: 25px;
+  padding-left: 5px;
+  margin-left: 50px;
+  /* height: 25px;
   background: white;
   color: gray;
-  padding-left: 5px;
   font-size: 14px;
-  border: none;
-  margin-left: 50px;
+  border: none; */
 `;
 
-const Input = styled.input`
+const InputNumber = styled(InputNumberAntd)`
   width: 150px;
-  height: 25px;
+  margin-bottom: 10px;
+  &.ant-input-number-group-wrapper {
+    padding-left: 5px;
+    margin-left: 50px;
+  }
+  /* height: 25px;
   background: white;
   color: gray;
-  padding-left: 5px;
   font-size: 14px;
   border: none;
-  margin-left: 50px;
-  margin-bottom: 10px;
   ::placeholder {
     color: black;
-  }
+  } */
 `;
 
-export { Select, Input, Wrapper };
+export { Select, InputNumber, Wrapper };

@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("@Apvizinho:token", access_token);
     localStorage.setItem("@Apvizinho:user", JSON.stringify(user));
 
-    api.defaults.headers.authorization = `Bearer ${access_token}`;
+    // api.defaults.headers.authorization = `Bearer ${access_token}`;
 
     setData({ user, token: access_token });
   }, []);
