@@ -10,7 +10,7 @@ export const Header = styled(HeaderAntd)`
 `;
 
 export const Layout = styled(LayoutAntd)`
-  background: #f5f5f5;
+  background: #fff;
   height: 100vh;
   overflow: auto;
 `;

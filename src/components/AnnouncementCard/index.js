@@ -1,10 +1,9 @@
-import { Card } from "antd";
 import {
   EditOutlined,
   EllipsisOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { CardLink } from "./style";
+import { Card, CardLink } from "./style";
 import { useNavigate } from "react-router-dom";
 
 const AnnouncementCard = ({ announcement }) => {
@@ -13,9 +12,16 @@ const AnnouncementCard = ({ announcement }) => {
   return (
     <Card
       title={announcement.title}
+      hoverable
       extra={<CardLink href={announcement.link}>more</CardLink>}
       style={{ width: 300 }}
-      cover={<img alt="room" src={announcement.cover} />}
+      cover={
+        <img
+          id="card-cover"
+          alt="room"
+          src={announcement.cover || "image_fault.png"}
+        />
+      }
       actions={[
         <SettingOutlined key="setting" />,
         <EditOutlined key="edit" />,
@@ -24,6 +30,7 @@ const AnnouncementCard = ({ announcement }) => {
       onClick={() =>
         navigate(`announcement/${announcement.id_announcement}`, {
           replace: true,
+          state: `announcement/${announcement.id_announcement}`,
         })
       }
     >
