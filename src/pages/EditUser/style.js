@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button as ButtonAntd } from "antd";
 
 export const PhotoDiv = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin: 20px;
   display: flex;
@@ -29,7 +29,7 @@ export const ProfileImage = styled.img`
 
 export const InfoDiv = styled.div`
   margin-top: 100px;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   margin-left: 60px;
@@ -42,7 +42,7 @@ export const InfoItemDiv = styled.div`
 
 export const ButtonRed = styled(ButtonAntd)`
   background-color: #c51d0a;
-  width: 100%;
+  width: 350px;
   border: none;
   margin-bottom: 10px;
   color: white;
@@ -53,10 +53,10 @@ export const ButtonRed = styled(ButtonAntd)`
 `;
 
 export const Input = styled.input`
-  font-size: 20px;
+  font-size: 17px;
   border-radius: 4px;
-  border-width: 1px;
-  border-color: #bcbdbf;
+  border: 1px solid #bcbdbf;
+  width: 350px;
   ::placeholder {
     margin-left: 20px;
   }
@@ -64,11 +64,11 @@ export const Input = styled.input`
 
 export const BioInput = styled.input`
   text-align: start;
-  font-size: 20px;
+  font-size: 17px;
+  width: 350px;
   border-radius: 4px;
-  border-width: 1px;
-  border-color: #bcbdbf;
-  height: 100px;
+  border: 1px solid #bcbdbf;
+  padding: 0 0 50px 0;
   ::placeholder {
     margin-left: 20px;
   }
@@ -79,5 +79,5 @@ export const ItemTitle = styled.h2`
 `;
 
 export const MyAnnouncementsButton = styled(ButtonAntd)`
-  width: 100%;
+  width: 350px;
 `;
