@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
 import { editUser } from "../../services/api.js";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   PhotoDiv,
@@ -16,12 +16,12 @@ import {
   BioInput,
 } from "./style.js";
 
-const LoadUser = () => {
-  // const navigate = useNavigate();
+const EditUser = () => {
+  const navigate = useNavigate();
 
-  // const navigateToEditProfile = () => {
-  //   navigate("/editUser");
-  // };
+  const navigateToLoadUser = () => {
+    navigate("/profile");
+  };
   const { user } = useAuth();
 
   const [name, setName] = useState(user.firstname);
@@ -67,6 +67,7 @@ const LoadUser = () => {
     console.log("value is:", userId);
     const response = await editUser({ payload, userId });
     console.log(response);
+    navigateToLoadUser();
   };
 
   return (
@@ -113,4 +114,4 @@ const LoadUser = () => {
   );
 };
 
-export default LoadUser;
+export default EditUser;
