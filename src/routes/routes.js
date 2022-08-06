@@ -44,7 +44,7 @@ const Router = () => {
         />
         <Route
           element={routeElement(true, EditAnnouncement, "Editar anúncio")}
-          path="/editAnnouncement"
+          path="/editAnnouncement/:announcementId"
         />
         <Route
           element={routeElement(true, ListAnnouncements)}

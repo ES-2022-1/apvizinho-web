@@ -11,22 +11,11 @@ const AnnouncementForm = ({
   announcementInitialValues,
   addressInitialValues,
 }) => {
-  // const onFinish = (values) => {
-  //   console.log("Success:", values);
-  // };
-
-  // const onFinishFailed = (errorInfo) => {
-  //   console.log("Failed:", errorInfo);
-  // };
-
   const onChange = () => {};
 
   const onDescriptionChange = (value) => {
     console.log("changed", value);
   };
-
-  console.log(addressInitialValues);
-  console.log(announcementInitialValues);
 
   return (
     <Wrapper>
@@ -46,9 +35,9 @@ const AnnouncementForm = ({
         <VacancyForm.Item
           label="Título"
           name="title"
-          wrapperCol={{
-            span: 8,
-          }}
+          // wrapperCol={{
+          //   span: 8,
+          // }}
           rules={[
             {
               required: true,
@@ -89,13 +78,7 @@ const AnnouncementForm = ({
             placeholder="1"
           />
         </VacancyForm.Item>
-        <VacancyForm.Item
-          label="Descrição"
-          name="description"
-          wrapperCol={{
-            span: 10,
-          }}
-        >
+        <VacancyForm.Item label="Descrição" name="description">
           <TextArea showCount maxLength={200} onChange={onDescriptionChange} />
         </VacancyForm.Item>
       </VacancyForm>
@@ -223,7 +206,16 @@ const AnnouncementForm = ({
             <Input placeholder="CEP" />
           </AddressForm.Item>
         </RowItem> */}
-        <AddressForm.Item label="Complemento" name="complement">
+        <AddressForm.Item
+          label="Complemento"
+          name="complement"
+          rules={[
+            {
+              required: true,
+              message: "Insira o complemento",
+            },
+          ]}
+        >
           <Input placeholder="Complemento" />
         </AddressForm.Item>
       </AddressForm>
