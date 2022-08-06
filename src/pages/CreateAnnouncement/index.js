@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 
 import { Form, notification } from "antd";
 
@@ -69,8 +69,8 @@ const CreateAnnouncement = () => {
   };
 
   const handleSubmit = async () => {
-    const access_token = sessionStorage.getItem("access_token");
-    const { id_user } = jwtDecode(access_token);
+    const { id_user } = localStorage.getItem("@Apvizinho:user");
+    // const { id_user } = jwtDecode(access_token);
 
     const payload = {
       ...announcementForm.getFieldsValue(),
