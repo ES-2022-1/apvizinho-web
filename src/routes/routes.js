@@ -52,7 +52,7 @@ const Router = () => {
         />
         <Route
           element={routeElement(true, LoadAnnouncement)}
-          path="/loadAnnouncement"
+          path="/announcement/:announcementId"
         />
         <Route
           element={routeElement(true, LoadUser, "Meu perfil")}

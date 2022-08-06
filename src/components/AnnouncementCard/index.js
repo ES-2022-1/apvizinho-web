@@ -28,10 +28,7 @@ const AnnouncementCard = ({ announcement }) => {
         <EllipsisOutlined key="ellipsis" />,
       ]}
       onClick={() =>
-        navigate(`announcement/${announcement.id_announcement}`, {
-          replace: true,
-          state: `announcement/${announcement.id_announcement}`,
-        })
+        navigate(`../announcement/${announcement.id_announcement}`)
       }
     >
       <p>{announcement.description}</p>

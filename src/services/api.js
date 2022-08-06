@@ -22,6 +22,14 @@ export const listUser = async () => {
   return response;
 };
 
+export const getUser = async (userId) => {
+  const response = await api.get(`/user/${userId}`, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
 export const registerAnnouncement = async (payload) => {
   const response = await api.post("/announcement", payload, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },
