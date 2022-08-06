@@ -11,6 +11,7 @@ import { LoadAnnouncement } from "../pages/LoadAnnouncement";
 import PrivateLayout from "../pages/_layouts/PrivateLayout";
 import PublicLayout from "../pages/_layouts/PublicLayout";
 import EditUser from "../pages/EditUser";
+import LoadUser from "../pages/LoadUser";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
@@ -34,7 +35,7 @@ const Router = () => {
           path="/forgotPassword"
         />
         <Route
-          element={routeElement(false, EditUser, "Editar user")}
+          element={routeElement(true, EditUser, "Editar perfil")}
           path="/editUser"
         />
         <Route
@@ -52,6 +53,10 @@ const Router = () => {
         <Route
           element={routeElement(true, LoadAnnouncement)}
           path="/loadAnnouncement"
+        />
+        <Route
+          element={routeElement(true, LoadUser, "Meu perfil")}
+          path="/profile"
         />
       </Routes>
     </BrowserRouter>
