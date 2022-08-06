@@ -1,24 +1,17 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Button, Input } from "antd";
-import { Wrapper, Form, Link } from "./style.js";
-import { login } from "../../services/api.js";
+import { Wrapper, Form } from "./style.js";
+import { useAuth } from "../../hooks/auth.js";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    login(values)
-      .then(({ data }) => {
-        sessionStorage.setItem("access_token", data.access_token);
-        navigate("/announcements", { replace: true });
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  const handleSubmit = useCallback(async (values) => {
+    await signIn(values);
+    navigate("/announcements");
+  });
 
   return (
     <Wrapper>
@@ -28,8 +21,7 @@ const LogIn = () => {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinish={handleSubmit}
         autoComplete="off"
       >
         <Form.Item
@@ -62,7 +54,6 @@ const LogIn = () => {
           </Button>
         </Form.Item>
       </Form>
-      <Link href="/forgotPassword">Esqueci minha senha</Link>
     </Wrapper>
   );
 };

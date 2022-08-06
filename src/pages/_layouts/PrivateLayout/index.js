@@ -1,6 +1,7 @@
 import React from "react";
 import { Header, Layout, PageTitle, Wrapper, TitleDiv } from "./style";
-import { Button, Divider } from "antd";
+import { Divider } from "antd";
+import ProfileButton from "./Button";
 
 const { Content } = Layout;
 
@@ -8,7 +9,7 @@ const PrivateLayout = ({ children, title }) => (
   <Layout>
     <Header>
       <h3>ApVizinho</h3>
-      <Button>Meu perfil</Button>
+      <ProfileButton />
     </Header>
     <Layout>
       <Wrapper>
