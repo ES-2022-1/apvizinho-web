@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button as ButtonAntd } from "antd";
+import { Button as ButtonAntd, Image } from "antd";
 
 export const PhotoDiv = styled.div`
   width: 90%;
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
-export const ProfileImage = styled.img`
+export const ProfileImage = styled(Image)`
   width: 200px;
   height: 200px;
   border-radius: 50%;
