@@ -14,14 +14,6 @@ export const registerUser = async (payload) => {
   return response;
 };
 
-export const listUser = async () => {
-  const response = await api.get("/user/", {
-    headers: { Authorization: `Bearer ${getAuthToken()}` },
-  });
-
-  return response;
-};
-
 export const getUser = async (userId) => {
   const response = await api.get(`/user/${userId}`, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },
@@ -112,6 +104,12 @@ export const deleteVacancy = async (idVacancy) => {
   const response = await api.delete(`/vacancy/${idVacancy}`, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },
   });
+
+  return response;
+};
+
+export const editUser = async ({ payload, userId }) => {
+  const response = await api.put(`/user/${userId}`, payload);
 
   return response;
 };
