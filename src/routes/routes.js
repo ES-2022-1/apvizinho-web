@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import CreateAnnouncement from "../pages/CreateAnnouncement";
 import LandingPage from "../pages/LandingPage";
 import SignUp from "../pages/SignUp";
@@ -14,21 +14,6 @@ import EditUser from "../pages/EditUser";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
-    const access_token = sessionStorage.getItem("access_token");
-    console.log(access_token);
-
-    if (!access_token && isPrivate) {
-      return <Navigate to="/login" />;
-    }
-
-    if (!!access_token && !isPrivate) {
-      return <Navigate to="/announcements" />;
-    }
-
-    if (!!access_token && !isPrivate) {
-      return <Navigate to="/user" />;
-    }
-
     const Layout = isPrivate ? PrivateLayout : PublicLayout;
 
     return (
