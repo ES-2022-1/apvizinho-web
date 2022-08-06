@@ -11,8 +11,8 @@ export const registerUser = async (payload) => {
   return response;
 };
 
-export const listUser = async () => {
-  const response = await api.get("/user/");
+export const getUser = async ({ userId }) => {
+  const response = await api.get(`/user/${userId}`);
 
   return response;
 };
@@ -25,6 +25,12 @@ export const registerAnnouncement = async (payload) => {
 
 export const listAnnouncement = async () => {
   const response = await api.get("/announcement/");
+
+  return response;
+};
+
+export const editUser = async ({ payload, userId }) => {
+  const response = await api.put(`/user/${userId}`, payload);
 
   return response;
 };

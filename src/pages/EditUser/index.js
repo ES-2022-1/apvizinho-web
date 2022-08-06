@@ -1,38 +1,116 @@
-// import { useState } from "react";
-
-import { Form } from "antd";
 import { useState } from "react";
-import UploadMultiple from "../../components/UploadMultiple";
-import { extractUserOptions } from "../../utils/utils";
-import { getUser } from "./mock.js";
-import { FormDiv, UploadDiv, UserForm, Wrapper } from "./style.js";
+import { useAuth } from "../../hooks/auth";
+import { editUser } from "../../services/api.js";
+// import { useNavigate } from "react-router-dom";
 
-const EditUser = () => {
-  const user = getUser();
-  const [userForm] = Form.useForm();
-  const [userOptions, setUserOptions] = useState({});
+import {
+  PhotoDiv,
+  Wrapper,
+  ProfileImage,
+  ButtonRed,
+  InfoDiv,
+  InfoItemDiv,
+  Input,
+  ItemTitle,
+  MyAnnouncementsButton,
+  BioInput,
+} from "./style.js";
 
-  const handleSetUserOptions = (index, value) => {
-    setUserOptions({ ...userOptions, [index]: value });
+const LoadUser = () => {
+  // const navigate = useNavigate();
+
+  // const navigateToEditProfile = () => {
+  //   navigate("/editUser");
+  // };
+  const { user } = useAuth();
+
+  const [name, setName] = useState(user.firstname);
+  const [email, setEmail] = useState(user.email);
+  const [bio, setBio] = useState(user.bio);
+  const [surname, setSurname] = useState(user.surname);
+  const [birthdate, setBirthdate] = useState(user.birthdate);
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
   };
 
-  console.log(extractUserOptions(user));
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleBioChange = (event) => {
+    setBio(event.target.value);
+  };
+
+  const handleSurnameChange = (event) => {
+    setSurname(event.target.value);
+  };
+
+  const handleBirthdateChange = (event) => {
+    setBirthdate(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    const userId = user.id_user;
+    const payload = {
+      firstname: name,
+      surname: surname,
+      email: email,
+      cellphone: user.cellphone,
+      birthdate: user.birthdate,
+      document: user.document,
+      already_reviewed: user.already_reviewed,
+      bio: bio,
+      profile_image: user.profile_image,
+    };
+    console.log("value is:", payload);
+    console.log("value is:", userId);
+    const response = await editUser({ payload, userId });
+    console.log(response);
+  };
 
   return (
     <Wrapper>
-      <FormDiv>
-        <UserForm
-          UserForm={userForm}
-          handleUserFormValuesChange={handleSetUserOptions}
-          userInitialValues={extractUserOptions(user)}
+      <PhotoDiv>
+        <ProfileImage
+          alt="profile-image"
+          src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="
         />
-        <UploadDiv>
-          <h2>Adicionar fotos</h2>
-          <UploadMultiple />
-        </UploadDiv>
-      </FormDiv>
+        <ButtonRed>Fazer upload</ButtonRed>
+        <MyAnnouncementsButton onClick={handleSubmit}>
+          Salvar alterações
+        </MyAnnouncementsButton>
+      </PhotoDiv>
+      <InfoDiv>
+        <InfoItemDiv>
+          <ItemTitle>Nome</ItemTitle>
+          <Input type="text" onChange={handleNameChange} value={name} />
+        </InfoItemDiv>
+        <InfoItemDiv>
+          <ItemTitle>Email</ItemTitle>
+          <Input type="text" onChange={handleEmailChange} value={email} />
+        </InfoItemDiv>
+        <InfoItemDiv>
+          <ItemTitle>Bio</ItemTitle>
+          <BioInput type="text" onChange={handleBioChange} value={bio} />
+        </InfoItemDiv>
+      </InfoDiv>
+      <InfoDiv>
+        <InfoItemDiv>
+          <ItemTitle>Sobrenome</ItemTitle>
+          <Input type="text" onChange={handleSurnameChange} value={surname} />
+        </InfoItemDiv>
+        <InfoItemDiv>
+          <ItemTitle>Data de nascimento</ItemTitle>
+          <Input
+            type="text"
+            onChange={handleBirthdateChange}
+            value={birthdate}
+          />
+        </InfoItemDiv>
+      </InfoDiv>
     </Wrapper>
   );
 };
 
-export default EditUser;
+export default LoadUser;
