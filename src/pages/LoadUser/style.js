@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button as ButtonAntd } from "antd";
 
 export const PhotoDiv = styled.div`
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin: 20px;
   display: flex;
@@ -29,7 +29,7 @@ export const ProfileImage = styled.img`
 
 export const InfoDiv = styled.div`
   margin-top: 100px;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   margin-left: 60px;
@@ -42,7 +42,7 @@ export const InfoItemDiv = styled.div`
 
 export const ButtonRed = styled(ButtonAntd)`
   background-color: #c51d0a;
-  width: 100%;
+  width: 350px;
   border: none;
   margin-bottom: 10px;
   color: white;
@@ -62,5 +62,5 @@ export const ItemTitle = styled.h2`
 `;
 
 export const MyAnnouncementsButton = styled(ButtonAntd)`
-  width: 100%;
+  width: 350px;
 `;
