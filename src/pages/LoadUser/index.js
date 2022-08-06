@@ -1,7 +1,7 @@
 import { useAuth } from "../../hooks/auth";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getUser } from "../../services/api.js";
+import { getUser } from "../../services/api";
 import { notification } from "antd";
 
 import {
