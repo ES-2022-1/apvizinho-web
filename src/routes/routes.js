@@ -12,6 +12,7 @@ import PrivateLayout from "../pages/_layouts/PrivateLayout";
 import PublicLayout from "../pages/_layouts/PublicLayout";
 import EditUser from "../pages/EditUser";
 import LoadUser from "../pages/LoadUser";
+import { UserAnnoucements } from "../pages/UserAnnouncements";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title) => {
@@ -53,6 +54,10 @@ const Router = () => {
         <Route
           element={routeElement(true, LoadAnnouncement)}
           path="/loadAnnouncement"
+        />
+        <Route
+          element={routeElement(true, UserAnnoucements)}
+          path="/userAnnouncements/:userId"
         />
         <Route
           element={routeElement(true, LoadUser, "Meu perfil")}
