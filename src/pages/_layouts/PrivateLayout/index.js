@@ -28,8 +28,8 @@ const PrivateLayout = ({ children, title, showBackArrow = true }) => {
       <Header>
         <h3>ApVizinho</h3>
         <div className="header-buttons">
-          <Button onClick={handleClick}>Sign out</Button>
           <ProfileButton />
+          <Button onClick={handleClick}>Sair</Button>
         </div>
       </Header>
       <Layout>
