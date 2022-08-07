@@ -10,9 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  // div with display grid and 3 columns
   display: flex;
-  /* grid-template-columns: repeat(3, 1fr); */
   flex-wrap: wrap;
   gap: 2rem;
   width: 100%;
@@ -24,7 +22,7 @@ export const Wrapper = styled.div`
 export const WrapperSearch = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   width: 100%;
   height: 100%;

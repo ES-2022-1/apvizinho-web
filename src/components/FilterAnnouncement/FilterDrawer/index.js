@@ -67,7 +67,7 @@ const ShowDrawer = ({ onSubmitFilters }) => {
     <>
       <Space>
         <ButtonRed type="primary" onClick={showDrawer}>
-          Filtrar
+          Filtros
         </ButtonRed>
       </Space>
       <Drawer

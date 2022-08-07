@@ -9,7 +9,6 @@ import {
   Wrapper,
   WrapperUserInfo,
   WrapperUserInfoSecondary,
-  // ProfileImage,
   CarouselContainer,
   CarouselImage,
   WrapperUserInfoPrimary,
@@ -44,6 +43,12 @@ export const LoadAnnouncement = () => {
 
   const onChange = (currentSlide) => {
     console.log(currentSlide);
+  };
+
+  const getAnnouncerLink = () => {
+    const link = `https://api.whatsapp.com/send?phone=55${announcement.user.cellphone}&text=Ol%C3%A1%2C%20Venho%20pelo%20ApVizinho.%20Gostaria%20de%20conversar%20sobre%20o%20anuncio%20${announcement.title}`;
+
+    return link;
   };
 
   useEffect(() => {
@@ -117,7 +122,7 @@ export const LoadAnnouncement = () => {
               <ListItem>{announcement.description}</ListItem>
             </WrapperUserInfoColumn>
           </WrapperUserInfoPrimary>
-          <ButtonDiv>
+          <ButtonDiv href={getAnnouncerLink()}>
             <Button>Entrar em contato com anunciante</Button>
           </ButtonDiv>
         </Wrapper>
