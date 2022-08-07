@@ -3,7 +3,7 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
-const baseURL = process.env.REACT_APP_BASE_URL;
+const baseURL = "http://www.api.staging.apvizinho.com/";
 
 const api = axios.create({ baseURL });
 

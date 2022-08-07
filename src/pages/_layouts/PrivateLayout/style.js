@@ -47,7 +47,6 @@ export const PageTitle = styled.h1`
 
 export const Wrapper = styled.div`
   width: 100%;
-  padding: 0 2.5rem;
-  /* height: 100%; */
-  /* padding: 0 300px 0 300px; */
+  height: 100%;
+  padding: 0 200px 0 200px;
 `;
