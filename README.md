@@ -1,5 +1,5 @@
 # ApVizinho
-> Repositório do frontend do Apvizinho, aplicação desenvolvida na disciplina de Engenharia de software na Universidade Federal de Campina Grande.
+> Repositório do frontend do Apvizinho, aplicação desenvolvida na disciplina de Engenharia de software na Universidade Federal de Campina Grande, período 2021.2.
 
 ## Sobre
 Este projeto foi desenvolvido com React.js. As ferramentas eslint prettier são utilizadas para padronizar e formatar o código respectivamente e styled components e antd foram utilizados para facilitar o desenvolvimento
