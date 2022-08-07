@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { DeleteTwoTone as DeleteAntd } from "@ant-design/icons";
+
 import { Card as CardAntd } from "antd";
 
 export const Card = styled(CardAntd)`
@@ -16,3 +18,5 @@ export const CardLink = styled.a`
     color: red !important;
   }
 `;
+
+export const DeleteTwoTone = styled(DeleteAntd)``;

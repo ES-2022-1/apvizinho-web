@@ -1,4 +1,5 @@
 import { EditOutlined, DeleteTwoTone } from "@ant-design/icons";
+import { message, Popconfirm } from "antd";
 import { Card, CardLink } from "./style";
 import { useNavigate } from "react-router-dom";
 
@@ -11,10 +12,16 @@ const AnnouncementCard = ({ announcement, canEdit, canDelete }) => {
     navigate(`../editAnnouncement/${announcement.id_announcement}`);
   };
 
-  const handleClickDeleteIcon = (event) => {
+  const confirm = (event) => {
     console.log(event);
     event.preventDefault();
     navigate(`../deleteAnnouncement/${announcement.id_announcement}`);
+    message.success("Click on Yes");
+  };
+
+  const cancel = (e) => {
+    console.log(e);
+    message.error("Click on No");
   };
 
   return (
@@ -28,7 +35,7 @@ const AnnouncementCard = ({ announcement, canEdit, canDelete }) => {
             navigate(`../announcement/${announcement.id_announcement}`)
           }
         >
-          more
+          Sobre
         </CardLink>
       }
       style={{ width: 300 }}
@@ -42,7 +49,19 @@ const AnnouncementCard = ({ announcement, canEdit, canDelete }) => {
       actions={[
         canEdit && [<EditOutlined key="edit" onClick={handleClickEditIcon} />],
         canDelete && [
-          <DeleteTwoTone key="delete" onClick={handleClickDeleteIcon} />,
+          <Popconfirm
+            key="confirm"
+            title="Tem certeza que deseja deletar o anúncio?"
+            onConfirm={confirm}
+            onCancel={cancel}
+            okText="Yes"
+            cancelText="No"
+            onVisibleChange={() => console.log("visible change")}
+          >
+            <DeleteTwoTone key="delete" type="primary">
+              Open Popconfirm with Promise
+            </DeleteTwoTone>
+          </Popconfirm>,
         ],
       ]}
     >

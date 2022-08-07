@@ -14,7 +14,7 @@ import EditUser from "../pages/EditUser";
 import LoadUser from "../pages/LoadUser";
 import { UserAnnoucements } from "../pages/UserAnnouncements";
 import { useAuth } from "../hooks/auth";
-import DeleteAnnouncement from "../pages/DeleteAnnouncement";
+import DeleteAnnoucement from "../pages/DeleteAnnouncement";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title, showBackArrow) => {
@@ -80,10 +80,6 @@ const Router = () => {
           path="/editAnnouncement/:announcementId"
         />
         <Route
-          element={routeElement(true, DeleteAnnouncement, "Deletar anúncio")}
-          path="/deleteAnnouncement/:announcementId"
-        />
-        <Route
           element={routeElement(true, ListAnnouncements, "", false)}
           path="/announcements"
         />
@@ -98,6 +94,10 @@ const Router = () => {
         <Route
           element={routeElement(true, LoadUser, "Meu perfil")}
           path="/profile"
+        />
+        <Route
+          element={routeElement(true, DeleteAnnoucement)}
+          path="announcement/:announcementId"
         />
       </Routes>
     </BrowserRouter>
