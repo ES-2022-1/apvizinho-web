@@ -104,10 +104,6 @@ export const ListAnnouncements = () => {
           {announcements.map((announcement) => (
             <AnnouncementCard
               key={announcement.title}
-              canEdit={
-                announcement.id_user ===
-                JSON.parse(localStorage.getItem("@Apvizinho:user")).id_user
-              }
               onDelete={confirmDelete}
               onActivate={confirmActivate}
               onDeactivate={confirmDeactivate}

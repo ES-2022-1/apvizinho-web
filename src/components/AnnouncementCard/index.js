@@ -10,7 +10,7 @@ import { Popconfirm } from "antd";
 
 const AnnouncementCard = ({
   announcement,
-  canEdit,
+  showButtons,
   onDelete,
   onActivate,
   onDeactivate,
@@ -46,7 +46,7 @@ const AnnouncementCard = ({
         />
       }
       actions={
-        canEdit && [
+        showButtons && [
           <EditOutlined key="edit" onClick={handleClickEditIcon} />,
           <Popconfirm
             key="delete"
