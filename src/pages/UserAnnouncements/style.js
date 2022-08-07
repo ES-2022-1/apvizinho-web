@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button as ButtonAntd } from "antd";
 
 export const Container = styled.div`
   display: flex;
@@ -29,4 +30,14 @@ export const WrapperSearch = styled.div`
   height: 100%;
   margin-bottom: 6em;
   gap: 1rem;
+`;
+
+export const Button = styled(ButtonAntd)`
+  background-color: #e34818;
+  border: none;
+  width: 120px;
+  &:hover {
+    background-color: #e19877 !important;
+    color: black;
+  }
 `;
