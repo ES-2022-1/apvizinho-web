@@ -41,8 +41,23 @@ const AuthProvider = ({ children }) => {
     setData({});
   }, []);
 
+  const updateUser = useCallback(
+    (user) => {
+      setData({
+        token: data.token,
+        user,
+      });
+
+      localStorage.setItem("@Apvizinho:user", JSON.stringify(user));
+    },
+
+    [data.token]
+  );
+
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ user: data.user, signIn, signOut, updateUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

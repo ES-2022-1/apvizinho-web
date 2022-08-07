@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Avatar, notification, Spin } from "antd";
 import { useParams } from "react-router-dom";
-import { getAnnouncement, getUser } from "../../services/api";
+import { getAnnouncement } from "../../services/api";
 import { UserOutlined, CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import {
   Carousel,
@@ -26,14 +26,16 @@ import {
   localOptions,
   vacancyOptions,
 } from "../../utils/utils";
+import { useAuth } from "../../hooks/auth";
 
 export const LoadAnnouncement = () => {
   const ref = useRef();
 
+  const { user } = useAuth();
+
   const { announcementId } = useParams();
 
   const [announcement, setAnnouncement] = useState(undefined);
-  const [user, setUser] = useState(undefined);
 
   const announcementTitle = {
     color: "#e34818",
@@ -48,9 +50,6 @@ export const LoadAnnouncement = () => {
     getAnnouncement(announcementId)
       .then((response) => {
         setAnnouncement(response.data);
-        getUser(response.data.id_user).then((response) =>
-          setUser(response.data)
-        );
       })
       .catch((err) =>
         notification.error({
