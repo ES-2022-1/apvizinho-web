@@ -34,6 +34,7 @@ export const UserAnnoucements = () => {
           <AnnouncementCard
             key={announcement.title}
             canEdit={announcement.id_user === user.id_user}
+            canDelete={announcement.id_user === user.id_user}
             announcement={announcement}
           />
         ))}

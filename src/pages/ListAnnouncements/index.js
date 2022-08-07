@@ -41,6 +41,10 @@ export const ListAnnouncements = () => {
               announcement.id_user ===
               JSON.parse(localStorage.getItem("@Apvizinho:user")).id_user
             }
+            canDelete={
+              announcement.id_user ===
+              JSON.parse(localStorage.getItem("@Apvizinho:user")).id_user
+            }
             announcement={announcement}
           />
         ))}
