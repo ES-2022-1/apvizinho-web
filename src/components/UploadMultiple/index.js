@@ -42,11 +42,10 @@ const UploadMultiple = ({ idAnnoucement }) => {
     //   body: formData,
     // })
     uploadAnnoucementImages(idAnnoucement, formData)
-      .then((res) => res.json())
       .then(() => {
         setFileList([]);
         message.success("upload successfully.");
-        navigate("/annoucements");
+        navigate("/announcements");
       })
       .catch(() => {
         message.error("upload failed.");
