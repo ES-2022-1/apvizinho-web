@@ -34,7 +34,7 @@ const AnnouncementCard = ({
             navigate(`../announcement/${announcement.id_announcement}`)
           }
         >
-          more
+          Sobre
         </CardLink>
       }
       style={{ width: 300 }}
