@@ -16,7 +16,10 @@ const LandingPage = () => {
   return (
     <Wrapper>
       <Title>ApVizinho</Title>
-      <Subtitle>INSERIR TEXTINHO BONITINHO</Subtitle>
+      <Subtitle>
+        Aqui você encontra as melhores oportunidades de divisão de moradia na
+        sua cidade de forma rápida e simples
+      </Subtitle>
       <DivButtons>
         <Button type="primary" htmlType="button" onClick={navigateLogIn}>
           Fazer Login

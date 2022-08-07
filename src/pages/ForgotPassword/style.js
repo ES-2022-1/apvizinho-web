@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Link = styled.a`
-  color: #c51d0a;
+  color: #e34818;
   text-decoration: underline;
 `;
 
@@ -23,8 +23,8 @@ export const Form = styled(FormAntd)`
   min-width: 30.75rem;
   .ant-btn-primary {
     width: 100%;
-    border-color: #c51d0a;
-    background: #c51d0a;
+    border-color: #e34818;
+    background: #e34818;
   }
 `;
 

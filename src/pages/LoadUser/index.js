@@ -53,7 +53,11 @@ const LoadUser = () => {
           alt="profile-image"
           src={user.profile_image || "image_fault.png"}
         />
-        <ButtonRed>Meus anúncios</ButtonRed>
+        <ButtonRed
+          onClick={() => navigate(`../userAnnouncements/${user.id_user}`)}
+        >
+          Meus anúncios
+        </ButtonRed>
         <MyAnnouncementsButton onClick={navigateToEditProfile}>
           Editar perfil
         </MyAnnouncementsButton>

@@ -15,10 +15,10 @@ const Drawer = styled(DrawerAntd)`
 `;
 
 const ButtonRed = styled(ButtonAntd)`
-  background-color: #c51d0a;
+  background-color: #e34818;
   border: none;
   &:hover {
-    background-color: red !important;
+    background-color: #e19877 !important;
   }
 `;
 

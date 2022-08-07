@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button as ButtonAntd } from "antd";
 
 export const H1 = styled.h1`
-  color: #c51d0a;
+  color: #e34818;
   font-weight: 500;
   font-size: 30px;
   margin-left: 43px;
@@ -32,14 +32,14 @@ export const UploadDiv = styled.div`
 `;
 
 export const Button = styled(ButtonAntd)`
-  background-color: #c51d0a;
+  background-color: #e34818;
   color: white;
   width: 150px;
   margin-left: 15rem;
   margin-top: 150px;
   border: none;
   &:hover {
-    background-color: red !important;
+    background-color: #e19877 !important;
     color: white;
   }
 `;

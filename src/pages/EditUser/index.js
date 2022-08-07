@@ -24,8 +24,9 @@ const EditUser = () => {
   const navigateToLoadUser = () => {
     navigate("/profile");
   };
+
   const formData = useRef(new FormData());
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
 
   const [name, setName] = useState(user.firstname);
   const [email, setEmail] = useState(user.email);
@@ -99,11 +100,11 @@ const EditUser = () => {
       bio: bio,
       profile_image: user.profile_image,
     };
-    console.log("value is:", payload);
-    console.log("value is:", userId);
+
     uploadImage();
     const response = await editUser({ payload, userId });
-    console.log(response);
+    updateUser(response.data);
+
     navigateToLoadUser();
   };
 

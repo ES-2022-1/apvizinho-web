@@ -30,7 +30,7 @@ const AnnouncementCard = ({ announcement, canEdit }) => {
         <img
           id="card-cover"
           alt="room"
-          src={announcement.cover || "image_fault.png"}
+          src={announcement.cover || "/image_fault.png"}
         />
       }
       actions={
