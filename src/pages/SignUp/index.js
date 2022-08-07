@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input } from "antd";
+import { Button, DatePicker, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Wrapper, Form } from "./style.js";
 import { registerUser } from "../../services/api.js";
@@ -13,7 +13,7 @@ const SignUp = () => {
       email: values.email,
       cellphone: values.telefone,
       document: values.cpf,
-      birthdate: values.data_nascimento,
+      birthdate: values.data_nascimento.format("YYYY-MM-DD"),
       password: values.senha,
     };
     const response = await registerUser(payload);
@@ -107,7 +107,7 @@ const SignUp = () => {
             },
           ]}
         >
-          <Input placeholder="Data de nascimento" />
+          <DatePicker />
         </Form.Item>
         <Form.Item
           label="Senha"

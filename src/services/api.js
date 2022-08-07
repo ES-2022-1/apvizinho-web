@@ -10,7 +10,7 @@ const api = axios.create({ baseURL });
 api.interceptors.request.use(
   (config) => {
     // Do something before request is sent
-    const access_token = sessionStorage.getItem("access_token");
+    const access_token = localStorage.getItem("@Apvizinho:token");
     if (access_token) {
       const obj = jwtDecode(access_token);
 
@@ -18,7 +18,10 @@ api.interceptors.request.use(
       const expirationTime = obj.exp * 1000 - 60000;
 
       if (Date.now() > expirationTime) {
-        sessionStorage.removeItem("access_token");
+        // sessionStorage.removeItem("access_token");
+        localStorage.removeItem("@Apvizinho:token");
+        localStorage.removeItem("@Apvizinho:user");
+
         notification.error({
           message: "Session expired.",
         });

@@ -7,6 +7,13 @@ export const Card = styled(CardAntd)`
   #card-cover {
     border: 1px solid #f0f0f0;
   }
+  .ant-card-cover {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+  }
 `;
 
 export const CardLink = styled.a`
