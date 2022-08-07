@@ -121,6 +121,38 @@ export const updateAnnouncement = async (idAnnoucement, payload) => {
   return response;
 };
 
+export const deleteAnnouncement = async (idAnnoucement) => {
+  const response = await api.delete(`/announcement/${idAnnoucement}`, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const deactivateAnnouncement = async (idAnnoucement) => {
+  const response = await api.patch(
+    `/announcement/${idAnnoucement}/disable`,
+    {},
+    {
+      headers: { Authorization: `Bearer ${getAuthToken()}` },
+    }
+  );
+
+  return response;
+};
+
+export const activateAnnouncement = async (idAnnoucement) => {
+  const response = await api.patch(
+    `/announcement/${idAnnoucement}/enable`,
+    {},
+    {
+      headers: { Authorization: `Bearer ${getAuthToken()}` },
+    }
+  );
+
+  return response;
+};
+
 export const updateAddress = async (idAddress, payload) => {
   const response = await api.put(`/address/${idAddress}`, payload, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },
