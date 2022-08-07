@@ -108,7 +108,7 @@ export const Button = styled(ButtonAntd)`
   }
 `;
 
-export const ButtonDiv = styled.div`
+export const ButtonDiv = styled.a`
   width: 100%;
   height: 60px;
   margin-top: 30px;
