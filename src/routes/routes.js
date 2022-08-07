@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 import CreateAnnouncement from "../pages/CreateAnnouncement";
 import LandingPage from "../pages/LandingPage";
 import SignUp from "../pages/SignUp";
@@ -13,6 +13,7 @@ import PublicLayout from "../pages/_layouts/PublicLayout";
 import EditUser from "../pages/EditUser";
 import LoadUser from "../pages/LoadUser";
 import { UserAnnoucements } from "../pages/UserAnnouncements";
+import { useAuth } from "../hooks/auth";
 
 const Router = () => {
   const routeElement = (isPrivate, Component, title, showBackArrow) => {
@@ -25,12 +26,42 @@ const Router = () => {
     );
   };
 
+  const { user } = useAuth();
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={routeElement(false, LandingPage)} exact path="/" />
-        <Route element={routeElement(false, LogIn)} path="/login" />
-        <Route element={routeElement(false, SignUp)} path="/signup" />
+        <Route
+          element={
+            user ? (
+              <Navigate to={{ pathname: "/announcements" }} />
+            ) : (
+              routeElement(false, LandingPage)
+            )
+          }
+          exact
+          path="/"
+        />
+        <Route
+          element={
+            user ? (
+              <Navigate to={{ pathname: "/announcements" }} />
+            ) : (
+              routeElement(false, LogIn)
+            )
+          }
+          path="/login"
+        />
+        <Route
+          element={
+            user ? (
+              <Navigate to={{ pathname: "/announcements" }} />
+            ) : (
+              routeElement(false, SignUp)
+            )
+          }
+          path="/signup"
+        />
         <Route
           element={routeElement(false, ForgotPassword)}
           path="/forgotPassword"
