@@ -1,20 +1,20 @@
 import styled from "styled-components";
-import { Button as ButtonAntd, Image } from "antd";
+import { Button as ButtonAntd, Image, Input as InputAntd } from "antd";
 
 export const PhotoDiv = styled.div`
-  width: 90%;
-  height: 100%;
-  margin: 20px;
+  /* width: 90%;
+  height: 100%; */
+  /* margin: 20px; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 `;
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 80vh;
-  max-height: 100vh;
+  /* height: 80vh; */
+  /* max-height: 100vh; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -28,7 +28,7 @@ export const ProfileImage = styled(Image)`
 `;
 
 export const InfoDiv = styled.div`
-  margin-top: 100px;
+  /* margin-top: 100px; */
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -52,30 +52,25 @@ export const ButtonRed = styled(ButtonAntd)`
   }
 `;
 
-export const Input = styled.input`
-  font-size: 17px;
-  border-radius: 4px;
-  border: 1px solid #bcbdbf;
+export const Input = styled(InputAntd)`
+  font-size: 1rem;
   width: 350px;
   ::placeholder {
     margin-left: 20px;
   }
 `;
 
-export const BioInput = styled.input`
+export const BioInput = styled(InputAntd.TextArea)`
   text-align: start;
-  font-size: 17px;
+  font-size: 1rem;
   width: 350px;
-  border-radius: 4px;
-  border: 1px solid #bcbdbf;
-  padding: 0 0 50px 0;
   ::placeholder {
     margin-left: 20px;
   }
 `;
 
 export const ItemTitle = styled.h2`
-  font-size: 25px;
+  font-size: 1.2rem;
 `;
 
 export const MyAnnouncementsButton = styled(ButtonAntd)`
