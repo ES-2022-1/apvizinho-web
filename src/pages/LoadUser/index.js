@@ -31,7 +31,7 @@ const LoadUser = () => {
   const [birthdate, setBirthdate] = useState(user.birthdate);
 
   useEffect(() => {
-    getUser({ userId: user.id_user })
+    getUser(user.id_user)
       .then((response) => {
         setName(response.data.firstname);
         setBio(response.data.bio);

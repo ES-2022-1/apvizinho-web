@@ -16,7 +16,7 @@ import {
   MyAnnouncementsButton,
   BioInput,
 } from "./style.js";
-import { message, Upload } from "antd";
+import { notification, Upload } from "antd";
 
 const EditUser = () => {
   const navigate = useNavigate();
@@ -57,24 +57,25 @@ const EditUser = () => {
     setBirthdate(event.target.value);
   };
 
-  const uploadImage = () => {
-    // const formData = new FormData();
-    // formData.append('file', file);
+  // const uploadImage = () => {
+  //   // const formData = new FormData();
+  //   // formData.append('file', file);
 
-    setUploading(true); // You can use any AJAX library you like
+  //   setUploading(true); // You can use any AJAX library you like
 
-    uploadUserImage(user.id_user, formData.current)
-      .then((res) => res.json())
-      .then(() => {
-        message.success("upload successfully.");
-      })
-      .catch(() => {
-        message.error("upload failed.");
-      })
-      .finally(() => {
-        setUploading(false);
-      });
-  };
+  //   uploadUserImage(user.id_user, formData.current)
+  //     .then((res) => res.json())
+  //     .then(() => {
+  //       message.success("upload successfully.");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       message.error("upload failed.");
+  //     })
+  //     .finally(() => {
+  //       setUploading(false);
+  //     });
+  // };
 
   const handleSelectImage = (imgFile) => {
     formData.current.set("file", imgFile, imgFile.name);
@@ -101,9 +102,26 @@ const EditUser = () => {
       profile_image: user.profile_image,
     };
 
-    uploadImage();
-    const response = await editUser({ payload, userId });
-    updateUser(response.data);
+    try {
+      setUploading(true);
+      const response = await editUser({ payload, userId });
+      const responseImage = await uploadUserImage(
+        user.id_user,
+        formData.current
+      );
+      updateUser({
+        ...response.data,
+        profile_image: responseImage.data.profile_image,
+      });
+      notification.success({
+        message: "Perfil atualizado",
+      });
+      setUploading(false);
+    } catch {
+      notification.error({
+        message: "Não foi possível atualizar as informações",
+      });
+    }
 
     navigateToLoadUser();
   };
