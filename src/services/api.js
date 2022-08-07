@@ -1,8 +1,42 @@
+import { notification } from "antd";
 import axios from "axios";
+import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 
 const api = axios.create({ baseURL });
+
+api.interceptors.request.use(
+  (config) => {
+    // Do something before request is sent
+    const access_token = sessionStorage.getItem("access_token");
+    if (access_token) {
+      const obj = jwtDecode(access_token);
+
+      console.log(obj);
+      const expirationTime = obj.exp * 1000 - 60000;
+
+      if (Date.now() > expirationTime) {
+        sessionStorage.removeItem("access_token");
+        notification.error({
+          message: "Session expired.",
+        });
+
+        const navigate = useNavigate();
+        navigate("/login", { replace: true });
+
+        return Promise.reject("Session expired");
+      }
+    }
+
+    return config;
+  },
+  (error) => {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
 
 const getAuthToken = () => {
   return localStorage.getItem("@Apvizinho:token");
@@ -119,6 +153,17 @@ export const deleteVacancy = async (idVacancy) => {
 export const editUser = async ({ payload, userId }) => {
   const response = await api.put(`/user/${userId}`, payload, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
+export const uploadUserImage = async (idUser, formData) => {
+  const response = await api.post(`/user/${idUser}/upload`, formData, {
+    headers: {
+      Authorization: `Bearer ${getAuthToken()}`,
+      "Content-Type": "multipart/form-data; boundary=XXXX; charset=utf-8",
+    },
   });
 
   return response;

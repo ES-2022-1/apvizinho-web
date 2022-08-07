@@ -127,7 +127,7 @@ const CreateAnnouncement = () => {
                 />
               ))}
             </VacancyFormWrapper>
-            <Button onClick={handleSubmit}>Criar anúncio</Button>
+            <Button onClick={handleSubmit}>Próximo</Button>
           </CheckDiv>
         </>
       )}

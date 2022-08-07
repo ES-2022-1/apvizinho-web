@@ -31,7 +31,7 @@ const LoadUser = () => {
   const [birthdate, setBirthdate] = useState(user.birthdate);
 
   useEffect(() => {
-    getUser({ userId: user.id_user })
+    getUser(user.id_user)
       .then((response) => {
         setName(response.data.firstname);
         setBio(response.data.bio);
@@ -51,7 +51,7 @@ const LoadUser = () => {
       <PhotoDiv>
         <ProfileImage
           alt="profile-image"
-          src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0="
+          src={user.profile_image || "image_fault.png"}
         />
         <ButtonRed
           onClick={() => navigate(`../userAnnouncements/${user.id_user}`)}

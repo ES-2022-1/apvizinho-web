@@ -10,6 +10,11 @@ export const Header = styled(HeaderAntd)`
   align-items: center;
   color: #443b57;
   font-size: 20px;
+  .header-buttons {
+    button {
+      margin-left: 1rem;
+    }
+  }
 `;
 
 export const ArrowContainer = styled.div`

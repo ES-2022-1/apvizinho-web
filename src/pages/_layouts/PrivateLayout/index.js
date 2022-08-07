@@ -8,19 +8,29 @@ import {
   BackArrow,
   ArrowContainer,
 } from "./style";
-import { Divider } from "antd";
+import { Divider, Button } from "antd";
 import ProfileButton from "./Button";
 const { Content } = Layout;
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/auth";
 
 const PrivateLayout = ({ children, title, showBackArrow = true }) => {
+  const { signOut } = useAuth();
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    signOut();
+    navigate("/login");
+  };
 
   return (
     <Layout>
       <Header>
         <h3>ApVizinho</h3>
-        <ProfileButton />
+        <div className="header-buttons">
+          <ProfileButton />
+          <Button onClick={handleClick}>Sair</Button>
+        </div>
       </Header>
       <Layout>
         <Wrapper>
