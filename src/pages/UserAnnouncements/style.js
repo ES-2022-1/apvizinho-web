@@ -32,10 +32,14 @@ export const WrapperSearch = styled.div`
   gap: 1rem;
 `;
 
+export const ButtonDiv = styled.div`
+  width: 100%;
+`;
 export const Button = styled(ButtonAntd)`
   background-color: #e34818;
   border: none;
   width: 120px;
+  float: right;
   &:hover {
     background-color: #e19877 !important;
     color: black;

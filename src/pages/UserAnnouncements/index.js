@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Wrapper, Button } from "./style";
+import { Container, Wrapper, Button, ButtonDiv } from "./style";
 import AnnouncementCard from "../../components/AnnouncementCard/index";
 import { listAnnouncement } from "../../services/api";
 import { useParams, useNavigate } from "react-router-dom";
@@ -26,8 +26,10 @@ export const UserAnnoucements = () => {
 
   return (
     <Container>
-      <Wrapper>
+      <ButtonDiv>
         <Button onClick={navigateToCreateAnnouncement}>Novo anúncio</Button>
+      </ButtonDiv>
+      <Wrapper>
         {announcements.map((announcement) => (
           <AnnouncementCard
             key={announcement.title}
