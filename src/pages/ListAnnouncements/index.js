@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Input, notification, Spin } from "antd";
+import { notification, Spin } from "antd";
 import { Container, Wrapper, WrapperSearch } from "./style";
 import AnnouncementCard from "../../components/AnnouncementCard/index";
 import ShowDrawer from "../../components/FilterAnnouncement/FilterDrawer";
@@ -90,11 +90,6 @@ export const ListAnnouncements = () => {
   return (
     <Container>
       <WrapperSearch>
-        <Input.Search
-          placeholder="Search"
-          onSearch={(value) => console.log(value)}
-          allowClear
-        />
         <ShowDrawer onSubmitFilters={onSumitFilters} />
       </WrapperSearch>
       {loading ? (
