@@ -15,11 +15,11 @@ import LoadUser from "../pages/LoadUser";
 import { UserAnnoucements } from "../pages/UserAnnouncements";
 
 const Router = () => {
-  const routeElement = (isPrivate, Component, title) => {
+  const routeElement = (isPrivate, Component, title, showBackArrow) => {
     const Layout = isPrivate ? PrivateLayout : PublicLayout;
 
     return (
-      <Layout title={title}>
+      <Layout title={title} showBackArrow={showBackArrow}>
         <Component />
       </Layout>
     );
@@ -48,7 +48,7 @@ const Router = () => {
           path="/editAnnouncement/:announcementId"
         />
         <Route
-          element={routeElement(true, ListAnnouncements)}
+          element={routeElement(true, ListAnnouncements, "", false)}
           path="/announcements"
         />
         <Route

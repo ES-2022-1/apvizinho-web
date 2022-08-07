@@ -1,5 +1,6 @@
 import { Layout as LayoutAntd } from "antd";
 import styled from "styled-components";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 const { Header: HeaderAntd } = LayoutAntd;
 
 export const Header = styled(HeaderAntd)`
@@ -11,6 +12,14 @@ export const Header = styled(HeaderAntd)`
   font-size: 20px;
 `;
 
+export const ArrowContainer = styled.div`
+  cursor: pointer;
+`;
+export const BackArrow = styled(ArrowLeftOutlined)`
+  font-size: 20px;
+  margin-right: 15px;
+`;
+
 export const Layout = styled(LayoutAntd)`
   background: #fff;
   height: 100vh;
@@ -18,11 +27,14 @@ export const Layout = styled(LayoutAntd)`
 `;
 
 export const TitleDiv = styled.div`
+  display: flex;
+  align-items: center;
   width: 100%;
 `;
 
 export const PageTitle = styled.h1`
   font-size: 30px;
+  margin-left: 50px;
   font-weight: 400;
   color: #e34818;
   margin: 0;
