@@ -41,13 +41,13 @@ export const InfoItemDiv = styled.div`
 `;
 
 export const ButtonRed = styled(ButtonAntd)`
-  background-color: #c51d0a;
+  background-color: #e34818;
   width: 350px;
   border: none;
   margin-bottom: 10px;
   color: white;
   &:hover {
-    background-color: red !important;
+    background-color: #e19877 !important;
     color: white;
   }
 `;

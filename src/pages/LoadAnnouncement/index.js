@@ -36,7 +36,7 @@ export const LoadAnnouncement = () => {
   const [user, setUser] = useState(undefined);
 
   const announcementTitle = {
-    color: "#c51d0a",
+    color: "#e34818",
     fontSize: "30px",
   };
 

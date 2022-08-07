@@ -100,10 +100,10 @@ export const ListItem = styled.p`
 
 export const Button = styled(ButtonAntd)`
   float: right;
-  background-color: #c51d0a;
+  background-color: #e34818;
   color: white;
   &:hover {
-    background-color: red !important;
+    background-color: #e19877 !important;
     color: white;
   }
 `;

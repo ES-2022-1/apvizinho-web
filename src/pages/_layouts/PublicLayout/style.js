@@ -21,6 +21,8 @@ export const Sider = styled(SiderAntd)`
 
 export const Header = styled(HeaderAntd)`
   background: transparent;
+  color: #443b57;
+  font-size: 20px;
 `;
 
 export const Footer = styled(FooterAntd)`

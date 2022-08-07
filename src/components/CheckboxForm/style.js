@@ -13,7 +13,7 @@ const CheckItem = styled.div`
 
 const Checkbox = styled.input.attrs({ type: "checkbox" })`
   font-family: "League Spartan", sans-serif;
-  accent-color: #c51d0a;
+  accent-color: #e34818;
   margin-right: 10px;
 `;
 

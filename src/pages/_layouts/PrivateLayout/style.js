@@ -7,6 +7,8 @@ export const Header = styled(HeaderAntd)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #443b57;
+  font-size: 20px;
 `;
 
 export const Layout = styled(LayoutAntd)`
@@ -22,7 +24,7 @@ export const TitleDiv = styled.div`
 export const PageTitle = styled.h1`
   font-size: 30px;
   font-weight: 400;
-  color: #c51d0a;
+  color: #e34818;
   margin: 0;
 `;
 
