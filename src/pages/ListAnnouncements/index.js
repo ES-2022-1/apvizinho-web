@@ -10,13 +10,10 @@ import {
   listAnnouncement,
   listAnnouncementFilter,
 } from "../../services/api";
-import { useAuth } from "../../hooks/auth";
 
 export const ListAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const { user } = useAuth();
 
   const onSumitFilters = async (filters) => {
     const payload = {
@@ -102,7 +99,6 @@ export const ListAnnouncements = () => {
           {announcements.map((announcement) => (
             <AnnouncementCard
               key={announcement.title}
-              canEdit={announcement.id_user === user.id_user}
               onDelete={confirmDelete}
               onActivate={confirmActivate}
               onDeactivate={confirmDeactivate}
