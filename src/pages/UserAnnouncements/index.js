@@ -52,7 +52,6 @@ export const UserAnnoucements = () => {
         message: "Não foi possível desativar o anúncio",
       });
     }
-    // message.success('Click on Yes');
   };
 
   const confirmActivate = async (announcementId) => {

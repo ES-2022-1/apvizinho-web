@@ -154,7 +154,7 @@ export const activateAnnouncement = async (idAnnoucement) => {
 };
 
 export const getUserAnnouncements = async (idUser) => {
-  const response = await api.get(`/user/${idUser}`, {
+  const response = await api.get(`/user/${idUser}/announcements`, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },
   });
 
