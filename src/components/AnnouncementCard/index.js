@@ -42,7 +42,11 @@ const AnnouncementCard = ({
         <img
           id="card-cover"
           alt="room"
-          src={announcement.images_url[0] || "/image_fault.png"}
+          src={
+            announcement.images_url
+              ? announcement.images_url[0]
+              : "/image_fault.png"
+          }
         />
       }
       actions={

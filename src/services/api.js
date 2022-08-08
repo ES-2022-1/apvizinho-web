@@ -153,6 +153,14 @@ export const activateAnnouncement = async (idAnnoucement) => {
   return response;
 };
 
+export const getUserAnnouncements = async (idUser) => {
+  const response = await api.get(`/user/${idUser}`, {
+    headers: { Authorization: `Bearer ${getAuthToken()}` },
+  });
+
+  return response;
+};
+
 export const updateAddress = async (idAddress, payload) => {
   const response = await api.put(`/address/${idAddress}`, payload, {
     headers: { Authorization: `Bearer ${getAuthToken()}` },

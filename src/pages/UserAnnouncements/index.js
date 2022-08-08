@@ -7,7 +7,7 @@ import {
   activateAnnouncement,
   deactivateAnnouncement,
   deleteAnnouncement,
-  listAnnouncement,
+  getUserAnnouncements,
 } from "../../services/api";
 import { notification } from "antd";
 
@@ -28,7 +28,7 @@ export const UserAnnoucements = () => {
       notification.success({
         message: "Anúncio deletado",
       });
-      listAnnouncement().then((response) => {
+      getUserAnnouncements(userId).then((response) => {
         setAnnouncements(response.data);
       });
     } catch {
@@ -44,7 +44,7 @@ export const UserAnnoucements = () => {
       notification.success({
         message: "Anúncio desativado",
       });
-      listAnnouncement().then((response) => {
+      getUserAnnouncements(userId).then((response) => {
         setAnnouncements(response.data);
       });
     } catch {
@@ -61,7 +61,7 @@ export const UserAnnoucements = () => {
       notification.success({
         message: "Anúncio ativado",
       });
-      listAnnouncement().then((response) => {
+      getUserAnnouncements(userId).then((response) => {
         setAnnouncements(response.data);
       });
     } catch {
@@ -72,10 +72,8 @@ export const UserAnnoucements = () => {
   };
 
   useEffect(() => {
-    listAnnouncement().then((response) => {
-      setAnnouncements(
-        response.data.filter(({ id_user }) => id_user === userId)
-      );
+    getUserAnnouncements(userId).then((response) => {
+      setAnnouncements(response.data);
     });
   }, []);
 
